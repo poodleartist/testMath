@@ -26,30 +26,7 @@ namespace MathWizzz
         public void GenerateQuestionAndAnswer()
         {
             Random random = new Random();
-            int firstOperand = random.Next(MinValue, MaxValue);
-            int secondOperand = random.Next(MinValue, MaxValue);
-            string mathOperator = "";
-            switch (Operator)
-            {
-                case "A":
-                    mathOperator = " + ";
-                    Answer = firstOperand + secondOperand;
-                    break;
-                case "S":
-                    mathOperator = " - ";
-                    Answer = firstOperand - secondOperand;
-                    break;
-                case "M":
-                    mathOperator = " * ";
-                    Answer = firstOperand * secondOperand;
-                    break;
-                case "D":
-                    mathOperator = " / ";
-                    Answer = firstOperand / secondOperand;
-                    break;
-            }
-
-            NewQuestion = firstOperand + mathOperator + secondOperand;
+            int firstOperand = random.Next()
         }
     }
 }

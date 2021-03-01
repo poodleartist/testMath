@@ -16,10 +16,13 @@ namespace MathWizzz
         {
             InitializeComponent();
         }
-
+        //Show Home page
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            frmHomePage HomePage = new frmHomePage();
+            HomePage.ShowDialog();
+            this.Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
