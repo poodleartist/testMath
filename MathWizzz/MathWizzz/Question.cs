@@ -17,7 +17,7 @@ namespace MathWizzz
         private void GenerateQuestionAndAnswer()
         {
             Random random = new Random();
-            int firstOperand = random.Next()
+            int firstOperand = random.Next();
         }
     }
 }
