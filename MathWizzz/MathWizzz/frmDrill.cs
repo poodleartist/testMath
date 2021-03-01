@@ -18,8 +18,18 @@ namespace MathWizzz
         }
         private void frmDrill_Load(object sender, EventArgs e)
         {
+            // generate SkillLevel object
+
+            
+
             // generate first Question object.
-            Question question = new Question(Student.skillLevel);
+            Question question = new Question(
+                student.skillLevel,
+                skillLevel.digits,
+                skillLevel.decimals,
+                skillLevel.min,
+                skillLevel.max,
+                skillLevel.mathOperator);
         }
 
         private void btnSubmitAnswer_Click(object sender, EventArgs e)
