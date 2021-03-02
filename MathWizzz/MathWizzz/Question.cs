@@ -13,6 +13,8 @@ namespace MathWizzz
         public int MaxValue { get; set; }
         public string Operator { get; set; }
 
+        public Question() { }
+
         public Question(int skillLevel, int digits, int decimals, int min, int max, string mathOperator)
         {
             SkillLevel = skillLevel;
@@ -21,6 +23,14 @@ namespace MathWizzz
             Operator = mathOperator;
             MinValue = min;
             MaxValue = max;
+        }
+
+        public bool CheckAnswer(int newAnswer)
+        {
+            if (Answer == newAnswer)
+                return true;
+            else
+                return false;
         }
 
         public void GenerateQuestionAndAnswer()

@@ -12,6 +12,10 @@ namespace MathWizzz
 {
     public partial class frmDrill : Form
     {
+        public Question Question { get; set; }
+        public SkillLevel SkillLevel { get; set; }
+        public User UserID { get; set; }
+
         public frmDrill()
         {
             InitializeComponent();
@@ -19,11 +23,11 @@ namespace MathWizzz
         private void frmDrill_Load(object sender, EventArgs e)
         {
             // generate SkillLevel object
-
+            SkillLevel = new SkillLevel(UserID);
             
 
             // generate first Question object.
-            Question question = new Question(
+            Question = new Question(
                 student.skillLevel,
                 skillLevel.digits,
                 skillLevel.decimals,
