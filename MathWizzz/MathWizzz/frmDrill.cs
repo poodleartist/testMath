@@ -13,8 +13,8 @@ namespace MathWizzz
     public partial class frmDrill : Form
     {
         public Question Question { get; set; }
-        public SkillLevel SkillLevel { get; set; }
-        public User UserID { get; set; }
+        //public SkillLevel SkillLevel { get; set; }
+       // public User UserID { get; set; }
 
         public frmDrill()
         {
@@ -23,17 +23,17 @@ namespace MathWizzz
         private void frmDrill_Load(object sender, EventArgs e)
         {
             // generate SkillLevel object
-            SkillLevel = new SkillLevel(UserID);
-            
+            //SkillLevel = new SkillLevel(UserID);
+
 
             // generate first Question object.
-            Question = new Question(
-                student.skillLevel,
-                skillLevel.digits,
-                skillLevel.decimals,
-                skillLevel.min,
-                skillLevel.max,
-                skillLevel.mathOperator);
+        //    Question = new Question(
+        //        student.skillLevel,
+        //        skillLevel.digits,
+        //        skillLevel.decimals,
+        //        skillLevel.min,
+        //        skillLevel.max,
+        //        skillLevel.mathOperator);
         }
 
         private void btnSubmitAnswer_Click(object sender, EventArgs e)
@@ -54,6 +54,6 @@ namespace MathWizzz
 
         }
 
-        
+
     }
 }

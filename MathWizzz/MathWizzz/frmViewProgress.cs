@@ -20,6 +20,8 @@ namespace MathWizzz
 
         private void frmViewProgress_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mathWizzDataSet.ActivityHistory' table. You can move, or remove it, as needed.
+            this.activityHistoryTableAdapter.Fill(this.mathWizzDataSet.ActivityHistory);
 
         }
 
@@ -53,6 +55,25 @@ namespace MathWizzz
             }
         }
 
+        private void activityHistoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.activityHistoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.mathWizzDataSet);
 
+        }
+
+        private void fillByStudentIDToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.activityHistoryTableAdapter.FillByStudentID(this.mathWizzDataSet.ActivityHistory, ((int)(System.Convert.ChangeType(studentIdToolStripTextBox.Text, typeof(int)))));
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
