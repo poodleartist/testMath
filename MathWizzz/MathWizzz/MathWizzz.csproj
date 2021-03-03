@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess.cs" />
     <Compile Include="Drill.cs" />
     <Compile Include="frmDrill.cs">
       <SubType>Form</SubType>
