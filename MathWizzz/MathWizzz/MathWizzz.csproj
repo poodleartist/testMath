@@ -93,6 +93,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MathWizzDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MathWizzDB.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
