@@ -9,20 +9,10 @@ namespace MathWizzz
 {
     class DataAccess
     {
-        static private string GetConnectionString()
-        {
-            // To avoid storing the connection string in your code,
-            // you can retrieve it from a configuration file.
-            string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;" +
-                "AttachDbFilename = C:\\Users\\johns\\source\\repos\\testMath\\MathWizzz\\MathWizzz\\MathWizz.mdf;" +
-                "Integrated Security = True";
-            return connectionString;
-        }
-
         public bool AddUser(Person person)
         {
             bool success = false;
-            string connectionString = GetConnectionString();
+            SqlConnection connectionString = MathWizzDB.GetConnection();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("INSERT INTO Users (UserName, Password, FirstName, LastName, UserRole)" +
