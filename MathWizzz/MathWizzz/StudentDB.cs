@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MathWizzz
 {
-    class StudentDB
+    public class StudentDB
     {
         public static Student GetStudentById(int studentId)
         {
@@ -68,11 +68,11 @@ namespace MathWizzz
                     Student student = new Student();
 
                     student.StudentID = (int)studentReader["StudentId"];
-                    student.firstName = studentReader["FirstName"].ToString();
-                    student.lastName = studentReader["LastName"].ToString();
-                    student.username = studentReader["UserName"].ToString();
-                    student.password = studentReader["Password"].ToString();
-                    student.studentLevel = studentReader["StudentLevel"];
+                    student.FirstName = studentReader["FirstName"].ToString();
+                    student.LastName = studentReader["LastName"].ToString();
+                    student.Username = studentReader["UserName"].ToString();
+                    student.Password = studentReader["Password"].ToString();
+                    student.StudentLevel = (int)studentReader["StudentLevel"];
                     student.ClassID = (int)studentReader["ClassId"];
 
                     return student;
