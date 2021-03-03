@@ -135,6 +135,10 @@
     <None Include="MathWizzDataSet.xss">
       <DependentUpon>MathWizzDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\MathWizzz.MathWizzDataSetTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\MathWizzz.MathWizzDataSetTableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\MathWizzz.MathWizzDataSetTableAdapters.UsersTableAdapter.datasource" />
+    <None Include="Properties\DataSources\MathWizzz.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
