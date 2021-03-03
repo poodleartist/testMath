@@ -22,6 +22,11 @@ namespace MathWizzz
             InitializeComponent();
             SkillLevel = skillLevel;
         }
+
+        public frmDrill()
+        {
+            InitializeComponent();
+        }
         private void frmDrill_Load(object sender, EventArgs e)
         {
             // generate SkillLevel object
