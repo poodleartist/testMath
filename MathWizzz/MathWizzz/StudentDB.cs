@@ -47,6 +47,52 @@ namespace MathWizzz
         }
 
 
+        // When the student log in this function will check the username and password
+        // If the account exist it return a student object.
+        public static Student GetStudentInfo(string username, string password)
+        {
+            SqlConnection connection = MathWizzDB.GetConnection();
+            string selectStatement = " SELECT StudentId, StudentLevel " +
+                " ,FirstName, LastName, UserName, Password, UserRole  FROM StudentInfo " +
+                " JOIN Users on StudentId = UserId " +
+                " WHERE (UserName = @username) AND (Password = @password)";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@username", username);
+            selectCommand.Parameters.AddWithValue("@password", password);
+            try
+            {
+                connection.Open();
+                SqlDataReader studentReader = selectCommand.ExecuteReader(System.Data.CommandBehavior.SingleRow);
+                if (studentReader.Read())
+                {
+                    Student student = new Student();
+
+                    student.StudentID = (int)studentReader["StudentId"];
+                    student.firstName = studentReader["FirstName"].ToString();
+                    student.lastName = studentReader["LastName"].ToString();
+                    student.username = studentReader["UserName"].ToString();
+                    student.password = studentReader["Password"].ToString();
+                    student.studentLevel = studentReader["StudentLevel"];
+                    student.ClassID = (int)studentReader["ClassId"];
+
+                    return student;
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
 
     }
 }
