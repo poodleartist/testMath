@@ -49,13 +49,13 @@ namespace MathWizzz
 
         // When the student log in this function will check the username and password
         // If the account exist it return a student object.
+
         public static Student GetStudentInfo(string username, string password)
         {
             SqlConnection connection = MathWizzDB.GetConnection();
-            string selectStatement = " SELECT StudentId, StudentLevel " +
-                " ,FirstName, LastName, UserName, Password, UserRole  FROM StudentInfo " +
-                " JOIN Users on StudentId = UserId " +
-                " WHERE (UserName = @username) AND (Password = @password)";
+            string selectStatement = " SELECT UserId " +
+                ", FirstName, LastName, UserName, Password, UserRole  FROM Users " +
+                " WHERE (UserName = @username) AND (Password = @password) ";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             selectCommand.Parameters.AddWithValue("@username", username);
             selectCommand.Parameters.AddWithValue("@password", password);
@@ -67,13 +67,12 @@ namespace MathWizzz
                 {
                     Student student = new Student();
 
-                    student.StudentID = (int)studentReader["StudentId"];
-                    student.FirstName = studentReader["FirstName"].ToString();
-                    student.LastName = studentReader["LastName"].ToString();
-                    student.Username = studentReader["UserName"].ToString();
-                    student.Password = studentReader["Password"].ToString();
-                    student.StudentLevel = (int)studentReader["StudentLevel"];
-                    student.ClassID = (int)studentReader["ClassId"];
+                    student.StudentID = (int)studentReader["UserId"];
+                    student.firstName = studentReader["FirstName"].ToString();
+                    student.lastName = studentReader["LastName"].ToString();
+                    student.username = studentReader["UserName"].ToString();
+                    student.password = studentReader["Password"].ToString();
+
 
                     return student;
 

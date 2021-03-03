@@ -11,9 +11,7 @@ namespace MathWizzz
     {
         public static SqlConnection GetConnection()
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDictionary|\\MathWizz.mdf;" +
-                "Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\TaiN_\Documents\Caps\MathWizzz\MathWizzz\MathWizz.mdf;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
         }

@@ -9,9 +9,9 @@ namespace MathWizzz
     public class Student : Person
     {
         //Student ID properties
-        private int studentID;
-        private int studentLevel;
-        private int classID;
+        public int studentID;
+        public int studentLevel;
+        public int classID;
         //Empty Constructor
         public Student()
         {
