@@ -21,12 +21,14 @@ namespace MathWizzz
         {
             string username = txtUsername.Text;
             string pwd = txtPassword.Text;
+            Student student = new Student();
 
+            student = StudentDB.GetStudentInfo(username, pwd);
             //If a user is found from the student DB then the homepage will launch for the student.
-            if (StudentDB.GetStudentInfo(username, pwd) != null)
+            if ( student != null)
             {
                 this.Hide();
-                frmHomePage HomePage = new frmHomePage();
+                frmHomePage HomePage = new frmHomePage(student);
                 HomePage.ShowDialog();
                 this.Show();
 

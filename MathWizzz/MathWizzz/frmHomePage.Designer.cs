@@ -35,11 +35,13 @@
             this.btnReward = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.cbxDrill = new System.Windows.Forms.ComboBox();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -53,13 +55,13 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 45);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(87, 45);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(76, 45);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(88, 45);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -100,11 +102,21 @@
             this.cbxDrill.Text = "Drills";
             this.cbxDrill.SelectedIndexChanged += new System.EventHandler(this.cbxDrill_SelectedIndexChanged);
             // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Location = new System.Drawing.Point(13, 53);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(93, 32);
+            this.lblWelcome.TabIndex = 6;
+            this.lblWelcome.Text = "label1";
+            // 
             // frmHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 582);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.cbxDrill);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnReward);
@@ -129,5 +141,6 @@
         private System.Windows.Forms.Button btnReward;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox cbxDrill;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }
