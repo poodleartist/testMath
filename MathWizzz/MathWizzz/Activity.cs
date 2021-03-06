@@ -11,12 +11,12 @@ namespace MathWizzz
         public int ActivityID { get; set; }
         public int NumberOfQuestions { get; set; }
         public int NumberOfCorrectAnswers { get; set; }
-       // public SkillLevel SkillLevel { get; set; }
+        public SkillLevel SkillLevel { get; set; }
 
         public abstract Question GetNextQuestion();
 
         public abstract bool CheckAnswer(int answer);
-      //  public abstract bool StoreActivity();
+        public abstract bool StoreActivity();
 
     }
 }

@@ -23,6 +23,16 @@ namespace MathWizzz
             cbxDrill.Items.Add(i);
         }
 
+        //Pass the student object to the form and display the student info.
+        public frmHomePage(Student student)
+        {
+            InitializeComponent();
+            foreach (int i in numOfQuestion)
+            cbxDrill.Items.Add(i);
+
+            lblWelcome.Text = student.FirstName + " " + student.LastName;
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

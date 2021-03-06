@@ -19,10 +19,24 @@ namespace MathWizzz
         //Show Home page
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmHomePage HomePage = new frmHomePage();
-            HomePage.ShowDialog();
-            this.Show();
+            string username = txtUsername.Text;
+            string pwd = txtPassword.Text;
+            Student student = new Student();
+
+            student = StudentDB.GetStudentInfo(username, pwd);
+            //If a user is found from the student DB then the homepage will launch for the student.
+            if ( student != null)
+            {
+                this.Hide();
+                frmHomePage HomePage = new frmHomePage(student);
+                HomePage.ShowDialog();
+                this.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("Incorrect password, or username. Please try again");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

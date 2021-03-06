@@ -8,11 +8,11 @@ namespace MathWizzz
 {
     public class Person
     {
-        private string lastName;
-        private string firstName;
-        private string userRole;
-        private string username;
-        private string password;
+        public string lastName;
+        public string firstName;
+        public string userRole;
+        public string username;
+        public string password;
 
         //Empty contructor
         public Person()

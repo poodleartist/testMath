@@ -4,25 +4,15 @@ namespace MathWizzz
 {
     public class Question
     {
-        public int SkillLevel { get; set; }
+        public SkillLevel SkillLevel { get; set; }
         public string NewQuestion { get; set; }
         public int Answer { get; set; }
-        public int NumberOfDigits { get; set; }
-        public int NumberOfDecimalPlaces { get; set; }
-        public int MinValue { get; set; }
-        public int MaxValue { get; set; }
-        public string Operator { get; set; }
 
         public Question() { }
 
-        public Question(int skillLevel, int digits, int decimals, int min, int max, string mathOperator)
+        public Question(SkillLevel skillLevel)
         {
             SkillLevel = skillLevel;
-            NumberOfDigits = digits;
-            NumberOfDecimalPlaces = decimals;
-            Operator = mathOperator;
-            MinValue = min;
-            MaxValue = max;
         }
 
         public bool CheckAnswer(int newAnswer)
@@ -36,10 +26,10 @@ namespace MathWizzz
         public void GenerateQuestionAndAnswer()
         {
             Random random = new Random();
-            int firstOperand = random.Next(MinValue, MaxValue);
-            int secondOperand = random.Next(MinValue, MaxValue);
+            int firstOperand = random.Next(SkillLevel.MinValue, SkillLevel.MaxValue);
+            int secondOperand = random.Next(SkillLevel.MinValue, SkillLevel.MaxValue);
             string mathOperator = "";
-            switch (Operator)
+            switch (SkillLevel.MathOperator)
             {
                 case "A":
                     mathOperator = " + ";
