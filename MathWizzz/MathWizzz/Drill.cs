@@ -27,10 +27,10 @@ namespace MathWizzz
             return isCorrect;
         }
 
-        public override bool StoreActivity()
-        {
-            // Save completed Drill to the database. Auto-increment Activity ID in database.
-        }
+        //public override bool StoreActivity()
+        //{
+        //    // Save completed Drill to the database. Auto-increment Activity ID in database.
+        //}
 
 
 
