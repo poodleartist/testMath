@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserDB.cs" />
+    <Compile Include="DataAccess.cs" />
     <Compile Include="Drill.cs" />
     <Compile Include="frmDrill.cs">
       <SubType>Form</SubType>
@@ -147,7 +147,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="README" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

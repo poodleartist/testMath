@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace MathWizzz
 {
-    class UserDB
+    class DataAccess
     {
-        public static bool AddUser(Person person)
+        public bool AddUser(Person person)
         {
             bool success = false;
             SqlConnection connectionString = MathWizzDB.GetConnection();
             SqlCommand command = new SqlCommand("INSERT INTO Users (UserName, Password, FirstName, LastName, UserRole)" +
-                                                "VALUES('@UserName', '@Password', '@FirstName', '@LastName', '@UserRole')");
+                                                "VALUES(@UserName, @Password, @FirstName, @LastName, @UserRole)");
 
             command.Parameters.AddWithValue("@UserName", person.Username);
             command.Parameters.AddWithValue("@Password", person.Password);
@@ -49,5 +49,6 @@ namespace MathWizzz
 
             return success;
         }
+
     }
 }
