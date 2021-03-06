@@ -63,56 +63,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="Drill.cs" />
-    <Compile Include="frmDrill.cs">
+    <Compile Include="DataAccess\UserDB.cs" />
+    <Compile Include="Models\Drill.cs" />
+    <Compile Include="Views\frmDrill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDrill.Designer.cs">
+    <Compile Include="Views\frmDrill.Designer.cs">
       <DependentUpon>frmDrill.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHomePage.cs">
+    <Compile Include="Views\frmHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHomePage.Designer.cs">
+    <Compile Include="Views\frmHomePage.Designer.cs">
       <DependentUpon>frmHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Views\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Views\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmViewProgress.cs">
+    <Compile Include="Views\frmViewProgress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewProgress.Designer.cs">
+    <Compile Include="Views\frmViewProgress.Designer.cs">
       <DependentUpon>frmViewProgress.cs</DependentUpon>
     </Compile>
-    <Compile Include="MathWizzDataSet.Designer.cs">
+    <Compile Include="DataAccess\MathWizzDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MathWizzDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MathWizzDB.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="DataAccess\MathWizzDB.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Activity.cs" />
-    <Compile Include="SkillLevel.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="StudentDB.cs" />
-    <EmbeddedResource Include="frmDrill.resx">
+    <Compile Include="Models\SkillLevel.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="DataAccess\StudentDB.cs" />
+    <EmbeddedResource Include="Views\frmDrill.resx">
       <DependentUpon>frmDrill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHomePage.resx">
+    <EmbeddedResource Include="Views\frmHomePage.resx">
       <DependentUpon>frmHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Views\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewProgress.resx">
+    <EmbeddedResource Include="Views\frmViewProgress.resx">
       <DependentUpon>frmViewProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -124,15 +124,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="MathWizzDataSet.xsc">
+    <None Include="DataAccess\MathWizzDataSet.xsc">
       <DependentUpon>MathWizzDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MathWizzDataSet.xsd">
+    <None Include="DataAccess\MathWizzDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>MathWizzDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="MathWizzDataSet.xss">
+    <None Include="DataAccess\MathWizzDataSet.xss">
       <DependentUpon>MathWizzDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\MathWizzz.MathWizzDataSetTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
@@ -153,10 +153,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MathWizz.mdf">
+    <Content Include="DataAccess\MathWizz.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MathWizz_log.ldf">
+    <Content Include="DataAccess\MathWizz_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>MathWizz.mdf</DependentUpon>
     </Content>
