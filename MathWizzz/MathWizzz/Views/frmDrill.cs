@@ -17,10 +17,10 @@ namespace MathWizzz
         public Student Student { get; set; }
         public Drill Drill { get; set; }
 
-        public frmDrill(SkillLevel skillLevel)
+        public frmDrill(Student drillStudent)
         {
             InitializeComponent();
-            SkillLevel = skillLevel;
+            Student = drillStudent;
         }
 
         public frmDrill()
