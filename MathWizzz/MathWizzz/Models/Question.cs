@@ -13,6 +13,7 @@ namespace MathWizzz
         public Question(SkillLevel skillLevel)
         {
             SkillLevel = skillLevel;
+            GenerateQuestionAndAnswer();
         }
 
         public bool CheckAnswer(int newAnswer)
@@ -31,7 +32,7 @@ namespace MathWizzz
             string mathOperator = "";
             switch (SkillLevel.MathOperator)
             {
-                case "A":
+                case "+":
                     mathOperator = " + ";
                     Answer = firstOperand + secondOperand;
                     break;
@@ -49,7 +50,7 @@ namespace MathWizzz
                     break;
             }
 
-            NewQuestion = firstOperand + mathOperator + secondOperand;
+            NewQuestion = firstOperand + " " + mathOperator + " " + secondOperand;
         }
     }
 }

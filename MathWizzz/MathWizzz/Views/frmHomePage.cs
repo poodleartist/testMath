@@ -50,9 +50,9 @@ namespace MathWizzz
         //When the user make a number of question selection load the question and show the drill form.
         private void cbxDrill_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int numQuestion = Int16.Parse(cbxDrill.Text);
+            int numQuestion = Int16.Parse(cbxDrill.Text);            
             this.Hide();
-            frmDrill DrillForm = new frmDrill();
+            frmDrill DrillForm = new frmDrill(student);
             DrillForm.ShowDialog();
 
         }

@@ -21,6 +21,14 @@ namespace MathWizzz
         {
             InitializeComponent();
             Student = drillStudent;
+
+            // generate SkillLevel object
+            SkillLevel = DataAccess.SkillLevelDB.GetSkillLevel(Student.StudentLevel);
+
+
+            // generate first Question object.
+            Question = new Question(SkillLevel);
+            DisplayQuestion();
         }
 
         public frmDrill()

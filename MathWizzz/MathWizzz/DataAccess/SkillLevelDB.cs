@@ -12,9 +12,10 @@ namespace MathWizzz.DataAccess
         public static SkillLevel GetSkillLevel(int skillLevel)
         {
             SqlConnection connection = MathWizzDB.GetConnection();
-            string selectStatement = "SELECT SkillLevel, NumberOfDigits, NumberOfDecimalPlaces, MathOperator, MinValue, MaxValue FROM SkillLevel " +
-                "INNER JOIN StudentInfo ON SkillLevel.SkillLevel = StudentInfo.StudentLevel " +
-                "WHERE SkillLevel = @skillLevel";
+            string selectStatement = "SELECT SkillLevel.SkillLevel, NumberOfDigits, NumberOfDecimalPlaces, MathOperator, MinValue, MaxValue" +
+                " FROM SkillLevel " +
+                "INNER JOIN StudentInfo ON SkillLevel.SkillLevel = StudentInfo.SkillLevel " +
+                "WHERE SkillLevel.SkillLevel = @skillLevel";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             selectCommand.Parameters.AddWithValue("@skillLevel", skillLevel);
