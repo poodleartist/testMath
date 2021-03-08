@@ -15,6 +15,8 @@ namespace MathWizzz
         //Number of question selection.
         int[] numOfQuestion = { 5, 10, 15, 20 };
 
+        private Student student;
+
         //Load the number of selection to the combo box.
         public frmHomePage()
         {
@@ -24,14 +26,20 @@ namespace MathWizzz
         }
 
         //Pass the student object to the form and display the student info.
-        public frmHomePage(Student student)
+        public frmHomePage(int studentID)
         {
+            Student student = new Student();
+
+            student = StudentDB.GetStudentById(studentID);
+
+            this.student = student;
             InitializeComponent();
             foreach (int i in numOfQuestion)
             cbxDrill.Items.Add(i);
 
-            //lblWelcome.Text = student.FirstName + " " + student.LastName;
-            lblWelcome.Text = "ABC" + " " + "CDE";
+            lblWelcome.Text = student.FirstName + " " + student.LastName;
+            
+            //lblWelcome.Text = "ABC" + " " + "CDE";
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,6 +55,19 @@ namespace MathWizzz
             frmDrill DrillForm = new frmDrill();
             DrillForm.ShowDialog();
 
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewProgression_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmViewProgress viewProgress = new frmViewProgress();
+            viewProgress.ShowDialog();
+            this.Show();
         }
     }
 }
