@@ -32,8 +32,6 @@ namespace MathWizzz
                     //Student stu = new Student();
                     //stu = StudentDB.GetStudentById(int.Parse(userId));
 
-
-
                     //MessageBox.Show("person role:" + person.userRole);
                     this.Hide();
                     frmHomePage HomePage = new frmHomePage(int.Parse(person.userId));
@@ -47,8 +45,6 @@ namespace MathWizzz
 
                 this.Show();
             }
-
-
         }
             else
             {
@@ -58,12 +54,9 @@ namespace MathWizzz
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            
-            //this.Hide();
-            //Views.frmRegister register = new Views.frmRegister();
-            //register.ShowDialog();
-            ////this.Show();
-
+            this.Hide();
+            Views.frmRegister register = new Views.frmRegister();
+            register.ShowDialog();
         }
     }
 }

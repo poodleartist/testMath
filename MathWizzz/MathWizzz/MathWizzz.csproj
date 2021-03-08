@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="DataAccess\UserDB.cs" />
     <Compile Include="Models\Drill.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Views\frmDrill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +83,12 @@
     </Compile>
     <Compile Include="Views\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmViewProgress.cs">
       <SubType>Form</SubType>
@@ -111,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmRegister.resx">
+      <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmViewProgress.resx">
       <DependentUpon>frmViewProgress.cs</DependentUpon>

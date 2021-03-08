@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MathWizzz.Models
 {
     // User class to move data object to DB, should be used for login process.
-    class User
+    public class User
     {
         public int UserId { get; set; }
         public string UserName { get; set; }
