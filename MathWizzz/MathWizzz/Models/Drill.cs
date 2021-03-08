@@ -14,6 +14,7 @@ namespace MathWizzz
 
         public Drill() { }
 
+
         public override Question GetNextQuestion()
         {
             // generate new Question
