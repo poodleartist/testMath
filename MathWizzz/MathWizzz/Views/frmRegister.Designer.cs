@@ -34,7 +34,7 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUserID = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -101,14 +101,14 @@
             this.txtPassword.Size = new System.Drawing.Size(219, 34);
             this.txtPassword.TabIndex = 24;
             // 
-            // txtUserID
+            // txtUserName
             // 
-            this.txtUserID.AccessibleRole = System.Windows.Forms.AccessibleRole.Caret;
-            this.txtUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserID.Location = new System.Drawing.Point(382, 130);
-            this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(219, 34);
-            this.txtUserID.TabIndex = 23;
+            this.txtUserName.AccessibleRole = System.Windows.Forms.AccessibleRole.Caret;
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(382, 130);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(219, 34);
+            this.txtUserName.TabIndex = 23;
             // 
             // label7
             // 
@@ -156,9 +156,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(189, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 29);
+            this.label2.Size = new System.Drawing.Size(137, 29);
             this.label2.TabIndex = 17;
-            this.label2.Text = "UserID";
+            this.label2.Text = "UserName";
             // 
             // label1
             // 
@@ -181,7 +181,7 @@
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUserID);
+            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -203,7 +203,7 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUserID;
+        private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
