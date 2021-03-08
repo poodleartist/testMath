@@ -65,7 +65,7 @@ namespace MathWizzz
         private void btnViewProgression_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmViewProgress viewProgress = new frmViewProgress();
+            frmViewProgress viewProgress = new frmViewProgress(int.Parse(student.userId));
             viewProgress.ShowDialog();
             this.Show();
         }

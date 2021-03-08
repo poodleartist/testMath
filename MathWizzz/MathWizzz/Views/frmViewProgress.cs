@@ -13,8 +13,13 @@ namespace MathWizzz
     public partial class frmViewProgress : Form
     {
         private Student student;
-        public frmViewProgress()
+        public frmViewProgress(int studentID)
         {
+            
+            Student student = new Student();
+
+            student = StudentDB.GetStudentById(studentID);
+            this.student = student;
             InitializeComponent();
         }
 
