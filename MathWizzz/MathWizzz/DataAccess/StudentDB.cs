@@ -12,7 +12,8 @@ namespace MathWizzz
         public static Student GetStudentById(int studentId)
         {
             SqlConnection connection = MathWizzDB.GetConnection();
-            string selectStatement = "SELECT SkillLevel, ClassId, UserId, FirstName, LastName, UserRole from Users INNER JOIN StudentInfo ON Users.UserId = StudentInfo.StudentId  WHERE UserId = @StudentId";
+            string selectStatement = "SELECT SkillLevel, ClassId, UserId, FirstName, LastName, UserRole" +
+                " from Users INNER JOIN StudentInfo ON Users.UserId = StudentInfo.StudentId  WHERE UserId = @StudentId";
             
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             selectCommand.Parameters.AddWithValue("@StudentId", studentId);
