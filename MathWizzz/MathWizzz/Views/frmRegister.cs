@@ -26,13 +26,15 @@ namespace MathWizzz.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            bool isInsert = true;
-            isInsert = UserDB.AddUser("insert into Users values('" + txtUserID.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" +
-                txtPassword.Text + "','" + cboRole.SelectedItem.ToString() + "')");
-            if (isInsert == false)
-            {
-                MessageBox.Show("insert data error");
-            }
+            //This was causing me problem so I commented out.
+
+            //bool isInsert = true;
+            //isInsert = UserDB.AddUser("insert into Users values('" + txtUserID.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" +
+            //    txtPassword.Text + "','" + cboRole.SelectedItem.ToString() + "')");
+            //if (isInsert == false)
+            //{
+            //    MessageBox.Show("insert data error");
+            //}
         }
     }
 }
