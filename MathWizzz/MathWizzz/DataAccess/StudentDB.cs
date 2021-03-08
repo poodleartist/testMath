@@ -9,10 +9,10 @@ namespace MathWizzz
 {
     public class StudentDB
     {
-        public static Student GetStudentById(string studentId)
+        public static Student GetStudentById(int studentId)
         {
             SqlConnection connection = MathWizzDB.GetConnection();
-            string selectStatement = "SELECT StudentLevel,ClassId from Students WHERE StudentId = @studentId";
+            string selectStatement = "SELECT StudentLevel, ClassId,UserId, FirstName, LastName,UserRole from Users INNER JOIN StudentInfo ON Users.UserId = StudentInfo.StudentId  WHERE UserId = @StudentId";
             
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             selectCommand.Parameters.AddWithValue("@StudentId", studentId);
@@ -25,6 +25,11 @@ namespace MathWizzz
                     Student student = new Student();
                     student.StudentLevel = (int)studentReader["StudentLevel"];
                     student.ClassID = (int)studentReader["ClassId"];
+                    student.UserId = studentReader["UserId"].ToString();
+                    student.FirstName = studentReader["FirstName"].ToString();
+                    student.LastName = studentReader["LastName"].ToString();
+                    student.UserRole = studentReader["UserRole"].ToString();
+                    
                     return student;
                 }
                 else
@@ -66,6 +71,8 @@ namespace MathWizzz
                     student.lastName = studentReader["LastName"].ToString();
                     student.username = studentReader["UserName"].ToString();
                     student.password = studentReader["Password"].ToString();
+                    student.userRole = studentReader["UserRole"].ToString();
+                    student.UserId = studentReader["UserId"].ToString();
 
 
                     return student;

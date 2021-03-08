@@ -48,7 +48,7 @@ namespace MathWizzz
         {
             try
             {
-                student = StudentDB.GetStudentById(studentId);
+                student = StudentDB.GetStudentById(int.Parse(studentId));
             }
             catch (Exception ex)
             {

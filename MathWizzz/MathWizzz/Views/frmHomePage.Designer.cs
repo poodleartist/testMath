@@ -33,7 +33,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReward = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnViewProgression = new System.Windows.Forms.Button();
             this.cbxDrill = new System.Windows.Forms.ComboBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -67,35 +67,37 @@
             // 
             // btnProfile
             // 
-            this.btnProfile.Location = new System.Drawing.Point(251, 125);
+            this.btnProfile.Location = new System.Drawing.Point(258, 260);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Size = new System.Drawing.Size(380, 66);
             this.btnProfile.TabIndex = 1;
             this.btnProfile.Text = "Profile";
             this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnReward
             // 
-            this.btnReward.Location = new System.Drawing.Point(251, 312);
+            this.btnReward.Location = new System.Drawing.Point(258, 447);
             this.btnReward.Name = "btnReward";
             this.btnReward.Size = new System.Drawing.Size(380, 66);
             this.btnReward.TabIndex = 3;
             this.btnReward.Text = "Reward Points";
             this.btnReward.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnViewProgression
             // 
-            this.button4.Location = new System.Drawing.Point(251, 410);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(380, 66);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnViewProgression.Location = new System.Drawing.Point(258, 545);
+            this.btnViewProgression.Name = "btnViewProgression";
+            this.btnViewProgression.Size = new System.Drawing.Size(380, 66);
+            this.btnViewProgression.TabIndex = 4;
+            this.btnViewProgression.Text = "View Progression";
+            this.btnViewProgression.UseVisualStyleBackColor = true;
+            this.btnViewProgression.Click += new System.EventHandler(this.btnViewProgression_Click);
             // 
             // cbxDrill
             // 
             this.cbxDrill.FormattingEnabled = true;
-            this.cbxDrill.Location = new System.Drawing.Point(251, 217);
+            this.cbxDrill.Location = new System.Drawing.Point(258, 352);
             this.cbxDrill.Name = "cbxDrill";
             this.cbxDrill.Size = new System.Drawing.Size(380, 39);
             this.cbxDrill.TabIndex = 5;
@@ -105,7 +107,7 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(13, 53);
+            this.lblWelcome.Location = new System.Drawing.Point(252, 105);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(93, 32);
             this.lblWelcome.TabIndex = 6;
@@ -115,10 +117,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 582);
+            this.ClientSize = new System.Drawing.Size(892, 884);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.cbxDrill);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnViewProgression);
             this.Controls.Add(this.btnReward);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.menuStrip1);
@@ -139,7 +141,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnReward;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnViewProgression;
         private System.Windows.Forms.ComboBox cbxDrill;
         private System.Windows.Forms.Label lblWelcome;
     }

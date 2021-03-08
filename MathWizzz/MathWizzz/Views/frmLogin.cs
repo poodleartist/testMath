@@ -23,33 +23,33 @@ namespace MathWizzz
             string pwd = txtPassword.Text;
             Person person = new Person();
 
-            person = UserDB.GetUserByUserId(userId);
+            person = StudentDB.GetStudentInfo(userId, pwd);
             //If a user is found from the student DB then the homepage will launch for the student.
             if (person != null)
             {
-                if(person.userRole == "Student")
+                if (person.userRole == "Student" || person.userRole == "student")
                 {
-                    Student stu = new Student();
-                    stu = StudentDB.GetStudentById(userId);
+                    //Student stu = new Student();
+                    //stu = StudentDB.GetStudentById(int.Parse(userId));
+
 
 
                     //MessageBox.Show("person role:" + person.userRole);
                     this.Hide();
-                    frmHomePage HomePage = new frmHomePage(stu);
+                    frmHomePage HomePage = new frmHomePage(int.Parse(person.userId));
                     HomePage.ShowDialog();
                     this.Show();
-                }
-                else if(person.userRole == "Teacher")
-                {
-                    //MessageBox.Show("person role:" + person.userRole);
-                    this.Hide();
-                    //frmHomePage HomePage = new frmHomePage(person);
-                    //HomePage.ShowDialog();
-                    this.Show();
-                }
-
-
             }
+            else if (person.userRole == "Teacher")
+            {
+
+                this.Hide();
+
+                this.Show();
+            }
+
+
+        }
             else
             {
                 MessageBox.Show("Incorrect password, or username. Please try again");
@@ -58,7 +58,8 @@ namespace MathWizzz
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
+            //this.Hide();
             //Views.frmRegister register = new Views.frmRegister();
             //register.ShowDialog();
             ////this.Show();
