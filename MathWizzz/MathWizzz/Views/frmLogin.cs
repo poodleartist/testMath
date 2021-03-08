@@ -19,18 +19,35 @@ namespace MathWizzz
         //Show Home page
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
+            string userId = txtUsername.Text;
             string pwd = txtPassword.Text;
-            Student student = new Student();
+            Person person = new Person();
 
-            student = StudentDB.GetStudentInfo(username, pwd);
+            person = UserDB.GetUserByUserId(userId);
             //If a user is found from the student DB then the homepage will launch for the student.
-            if ( student != null)
+            if (person != null)
             {
-                this.Hide();
-                frmHomePage HomePage = new frmHomePage(student);
-                HomePage.ShowDialog();
-                this.Show();
+                if(person.userRole == "Student")
+                {
+                    Student stu = new Student();
+                    stu = StudentDB.GetStudentById(userId);
+
+
+                    //MessageBox.Show("person role:" + person.userRole);
+                    this.Hide();
+                    frmHomePage HomePage = new frmHomePage(stu);
+                    HomePage.ShowDialog();
+                    this.Show();
+                }
+                else if(person.userRole == "Teacher")
+                {
+                    //MessageBox.Show("person role:" + person.userRole);
+                    this.Hide();
+                    //frmHomePage HomePage = new frmHomePage(person);
+                    //HomePage.ShowDialog();
+                    this.Show();
+                }
+
 
             }
             else
@@ -46,7 +63,7 @@ namespace MathWizzz
             Views.frmRegister register = new Views.frmRegister();
             register.ShowDialog();
             ////this.Show();
-            //MessageBox.Show("dddddddddddddddddddddddddddd");
+
         }
     }
 }

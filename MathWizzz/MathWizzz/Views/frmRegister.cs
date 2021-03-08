@@ -27,8 +27,8 @@ namespace MathWizzz.Views
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             bool isInsert = true;
-            //isInsert = StudentDB.AddUser("insert into Users values('" + txtUserID.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" +
-            //    txtPassword.Text + "','" + cboRole.SelectedItem.ToString() + "')");
+            isInsert = UserDB.AddUser("insert into Users values('" + txtUserID.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" +
+                txtPassword.Text + "','" + cboRole.SelectedItem.ToString() + "')");
             if (isInsert == false)
             {
                 MessageBox.Show("insert data error");

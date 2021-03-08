@@ -29,7 +29,8 @@ namespace MathWizzz
         {
             if (txtEnterStudentId.Text != "")
             {
-                int studentId = Convert.ToInt32(txtEnterStudentId.Text);
+                //string studentId = Convert.ToInt32(txtEnterStudentId.Text);
+                string studentId = txtEnterStudentId.Text;
                 this.GetStudent(studentId);
                 if (student == null)
                 {
@@ -43,7 +44,7 @@ namespace MathWizzz
             }
         }
 
-        private void GetStudent(int studentId)
+        private void GetStudent(string studentId)
         {
             try
             {

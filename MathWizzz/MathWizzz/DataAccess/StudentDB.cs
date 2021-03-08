@@ -9,23 +9,20 @@ namespace MathWizzz
 {
     public class StudentDB
     {
-        public static Student GetStudentById(int studentId)
+        public static Student GetStudentById(string studentId)
         {
             SqlConnection connection = MathWizzDB.GetConnection();
-            string selectStatement = "SELECT StudentId, StudentLevel," +
-                "ClassId,FirstName FROM StudentInfo" +
-                "JOIN Users on StudentId = UserId" +
-                "WHERE StudentId = @StudentId";
+            string selectStatement = "SELECT StudentLevel,ClassId from Students WHERE StudentId = @studentId";
+            
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             selectCommand.Parameters.AddWithValue("@StudentId", studentId);
             try
             {
                 connection.Open();
-                SqlDataReader studentReader = selectCommand.ExecuteReader(System.Data.CommandBehavior.SingleRow);
+                SqlDataReader studentReader = selectCommand.ExecuteReader();
                 if (studentReader.Read())
                 {
                     Student student = new Student();
-                    student.FirstName = studentReader["FirstName"].ToString();
                     student.StudentLevel = (int)studentReader["StudentLevel"];
                     student.ClassID = (int)studentReader["ClassId"];
                     return student;

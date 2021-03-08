@@ -9,46 +9,61 @@ namespace MathWizzz
 {
     class UserDB
     {
-        public static bool AddUser(Person person)
+        public static bool AddUser(string sql)
         {
-            bool success = false;
-            SqlConnection connectionString = MathWizzDB.GetConnection();
-            SqlCommand command = new SqlCommand("INSERT INTO Users (UserName, Password, FirstName, LastName, UserRole)" +
-                                                "VALUES('@UserName', '@Password', '@FirstName', '@LastName', '@UserRole')");
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText += sql;
+                    cmd.Connection = MathWizzDB.GetConnection();
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
 
-            command.Parameters.AddWithValue("@UserName", person.Username);
-            command.Parameters.AddWithValue("@Password", person.Password);
-            command.Parameters.AddWithValue("@FirstName", person.FirstName);
-            command.Parameters.AddWithValue("@LastName", person.LastName);
-            command.Parameters.AddWithValue("@UserRole", person.UserRole);
+        public static Person GetUserByUserId(string userId)
+        {
+            SqlConnection connection = MathWizzDB.GetConnection();
+            string sqlState = "Select LastName, FirstName, UserRole from Users where UserId = @userId";
+
+            SqlCommand cmd = new SqlCommand(sqlState, connection);
+            cmd.Parameters.AddWithValue("UserId", userId);
 
             try
             {
-                connectionString.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected > 0)
+                connection.Open();
+                SqlDataReader userReader = cmd.ExecuteReader();
+                
+                if(userReader.Read())
                 {
-                    success = true;
+                    Person person = new Person();
+                    person.FirstName = userReader["FirstName"].ToString();
+                    person.LastName = userReader["LastName"].ToString();
+                    person.UserRole = userReader["UserRole"].ToString();
+                    return person;
                 }
                 else
                 {
-                    success = false;
+                    return null;
                 }
 
-                // for testing
-                Console.WriteLine("RowsAffected: {0}", rowsAffected);
-
             }
-            catch (SqlException ex)
+            catch(SqlException ex)
             {
                 throw ex;
             }
             finally
             {
-                connectionString.Close();
+                connection.Close();
             }
-
-            return success;
         }
     }
 }

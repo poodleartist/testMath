@@ -30,7 +30,8 @@ namespace MathWizzz
             foreach (int i in numOfQuestion)
             cbxDrill.Items.Add(i);
 
-            lblWelcome.Text = student.FirstName + " " + student.LastName;
+            //lblWelcome.Text = student.FirstName + " " + student.LastName;
+            lblWelcome.Text = "ABC" + " " + "CDE";
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
