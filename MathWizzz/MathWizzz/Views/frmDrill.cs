@@ -14,13 +14,13 @@ namespace MathWizzz
     {
         public Question Question { get; set; }
         public SkillLevel SkillLevel { get; set; }
-        public int UserID { get; set; }
+        public Student Student { get; set; }
         public Drill Drill { get; set; }
 
-        public frmDrill(SkillLevel skillLevel)
+        public frmDrill(Student drillStudent)
         {
             InitializeComponent();
-            SkillLevel = skillLevel;
+            Student = drillStudent;
         }
 
         public frmDrill()
@@ -30,8 +30,8 @@ namespace MathWizzz
         private void frmDrill_Load(object sender, EventArgs e)
         {
             // generate SkillLevel object
-            SkillLevel = new SkillLevel();
-            
+            SkillLevel = DataAccess.SkillLevelDB.GetSkillLevel(Student.StudentLevel);
+
 
             // generate first Question object.
             Question = new Question(SkillLevel);

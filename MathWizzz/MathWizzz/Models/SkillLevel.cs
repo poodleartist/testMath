@@ -16,5 +16,10 @@
 
         }
 
+        public SkillLevel(int skillLevelId)
+        {
+
+        }
+
     }
 }
