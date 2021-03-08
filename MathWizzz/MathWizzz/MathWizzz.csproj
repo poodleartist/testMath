@@ -99,7 +99,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Question.cs" />
-    <Compile Include="Activity.cs" />
+    <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\SkillLevel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="DataAccess\StudentDB.cs" />

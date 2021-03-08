@@ -58,10 +58,9 @@ namespace MathWizzz
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            
             this.Hide();
-            Views.frmRegister register = new Views.frmRegister();
-            register.ShowDialog();
+            //Views.frmRegister register = new Views.frmRegister();
+            //register.ShowDialog();
             ////this.Show();
 
         }
