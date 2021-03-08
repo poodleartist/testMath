@@ -47,6 +47,7 @@ namespace MathWizzz
                     lblName.Text = student.FirstName;
                 }
             }
+
         }
 
         private void GetStudent(string studentId)

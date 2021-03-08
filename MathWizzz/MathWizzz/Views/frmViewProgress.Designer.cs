@@ -65,6 +65,7 @@ namespace MathWizzz
             this.fillByStudentIDToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.activityHistoryTableAdapter = new MathWizzz.DataAccess.MathWizzDataSetTableAdapters.ActivityHistoryTableAdapter();
             this.tableAdapterManager = new MathWizzz.DataAccess.MathWizzDataSetTableAdapters.TableAdapterManager();
+            this.tlpHistoryTable = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.activityHistoryBindingNavigator)).BeginInit();
             this.activityHistoryBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityHistoryBindingSource)).BeginInit();
@@ -145,7 +146,7 @@ namespace MathWizzz
             this.activityHistoryBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.activityHistoryBindingNavigator.Name = "activityHistoryBindingNavigator";
             this.activityHistoryBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.activityHistoryBindingNavigator.Size = new System.Drawing.Size(1465, 47);
+            this.activityHistoryBindingNavigator.Size = new System.Drawing.Size(2478, 51);
             this.activityHistoryBindingNavigator.TabIndex = 5;
             this.activityHistoryBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -155,7 +156,7 @@ namespace MathWizzz
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(44, 44);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(58, 44);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // activityHistoryBindingSource
@@ -181,7 +182,7 @@ namespace MathWizzz
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(44, 44);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(58, 44);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -190,7 +191,7 @@ namespace MathWizzz
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(44, 44);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(58, 44);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -199,13 +200,13 @@ namespace MathWizzz
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(44, 44);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(58, 44);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 47);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 51);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -219,7 +220,7 @@ namespace MathWizzz
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 47);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 51);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -227,7 +228,7 @@ namespace MathWizzz
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(44, 44);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(58, 44);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -236,20 +237,20 @@ namespace MathWizzz
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(44, 44);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(58, 44);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 47);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 51);
             // 
             // activityHistoryBindingNavigatorSaveItem
             // 
             this.activityHistoryBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.activityHistoryBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("activityHistoryBindingNavigatorSaveItem.Image")));
             this.activityHistoryBindingNavigatorSaveItem.Name = "activityHistoryBindingNavigatorSaveItem";
-            this.activityHistoryBindingNavigatorSaveItem.Size = new System.Drawing.Size(44, 44);
+            this.activityHistoryBindingNavigatorSaveItem.Size = new System.Drawing.Size(58, 44);
             this.activityHistoryBindingNavigatorSaveItem.Text = "Save Data";
             this.activityHistoryBindingNavigatorSaveItem.Click += new System.EventHandler(this.activityHistoryBindingNavigatorSaveItem_Click);
             // 
@@ -267,54 +268,67 @@ namespace MathWizzz
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.activityHistoryDataGridView.DataSource = this.activityHistoryBindingSource;
-            this.activityHistoryDataGridView.Location = new System.Drawing.Point(40, 390);
+            this.activityHistoryDataGridView.Location = new System.Drawing.Point(51, 395);
             this.activityHistoryDataGridView.Name = "activityHistoryDataGridView";
             this.activityHistoryDataGridView.ReadOnly = true;
+            this.activityHistoryDataGridView.RowHeadersWidth = 102;
             this.activityHistoryDataGridView.RowTemplate.Height = 40;
-            this.activityHistoryDataGridView.Size = new System.Drawing.Size(1394, 392);
+            this.activityHistoryDataGridView.Size = new System.Drawing.Size(1751, 392);
             this.activityHistoryDataGridView.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "DateTime";
             this.dataGridViewTextBoxColumn3.HeaderText = "DateTime";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 12;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 250;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "TotalQuestions";
             this.dataGridViewTextBoxColumn4.HeaderText = "TotalQuestions";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 12;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 250;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "CorrectAnswers";
             this.dataGridViewTextBoxColumn5.HeaderText = "CorrectAnswers";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 12;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 250;
             // 
             // GradePercent
             // 
             this.GradePercent.DataPropertyName = "CorrectAnswers/TotalQuestions";
             this.GradePercent.HeaderText = "GradePercent";
+            this.GradePercent.MinimumWidth = 12;
             this.GradePercent.Name = "GradePercent";
             this.GradePercent.ReadOnly = true;
+            this.GradePercent.Width = 250;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "SkillLevel";
             this.dataGridViewTextBoxColumn6.HeaderText = "SkillLevel";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 12;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 250;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "ActivityType";
             this.dataGridViewTextBoxColumn7.HeaderText = "ActivityType";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 12;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 250;
             // 
             // fillByStudentIDToolStrip
             // 
@@ -323,9 +337,9 @@ namespace MathWizzz
             this.studentIdToolStripLabel,
             this.studentIdToolStripTextBox,
             this.fillByStudentIDToolStripButton});
-            this.fillByStudentIDToolStrip.Location = new System.Drawing.Point(0, 47);
+            this.fillByStudentIDToolStrip.Location = new System.Drawing.Point(0, 51);
             this.fillByStudentIDToolStrip.Name = "fillByStudentIDToolStrip";
-            this.fillByStudentIDToolStrip.Size = new System.Drawing.Size(1465, 48);
+            this.fillByStudentIDToolStrip.Size = new System.Drawing.Size(2478, 52);
             this.fillByStudentIDToolStrip.TabIndex = 7;
             this.fillByStudentIDToolStrip.Text = "fillByStudentIDToolStrip";
             // 
@@ -338,7 +352,7 @@ namespace MathWizzz
             // studentIdToolStripTextBox
             // 
             this.studentIdToolStripTextBox.Name = "studentIdToolStripTextBox";
-            this.studentIdToolStripTextBox.Size = new System.Drawing.Size(100, 48);
+            this.studentIdToolStripTextBox.Size = new System.Drawing.Size(100, 52);
             // 
             // fillByStudentIDToolStripButton
             // 
@@ -360,11 +374,29 @@ namespace MathWizzz
             this.tableAdapterManager.UpdateOrder = MathWizzz.DataAccess.MathWizzDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
+            // tlpHistoryTable
+            // 
+            this.tlpHistoryTable.ColumnCount = 6;
+            this.tlpHistoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tlpHistoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tlpHistoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tlpHistoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tlpHistoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tlpHistoryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tlpHistoryTable.Location = new System.Drawing.Point(40, 831);
+            this.tlpHistoryTable.Name = "tlpHistoryTable";
+            this.tlpHistoryTable.RowCount = 2;
+            this.tlpHistoryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHistoryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpHistoryTable.Size = new System.Drawing.Size(2426, 667);
+            this.tlpHistoryTable.TabIndex = 8;
+            // 
             // frmViewProgress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1465, 807);
+            this.ClientSize = new System.Drawing.Size(2478, 1543);
+            this.Controls.Add(this.tlpHistoryTable);
             this.Controls.Add(this.fillByStudentIDToolStrip);
             this.Controls.Add(this.activityHistoryDataGridView);
             this.Controls.Add(this.activityHistoryBindingNavigator);
@@ -424,5 +456,6 @@ namespace MathWizzz
         private System.Windows.Forms.DataGridViewTextBoxColumn GradePercent;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.TableLayoutPanel tlpHistoryTable;
     }
 }
