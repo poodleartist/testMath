@@ -39,9 +39,14 @@ namespace MathWizzz
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
+            this.Hide();
+            Views.frmRegister register = new Views.frmRegister();
+            register.ShowDialog();
+            ////this.Show();
+            //MessageBox.Show("dddddddddddddddddddddddddddd");
         }
     }
 }

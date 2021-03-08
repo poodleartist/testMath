@@ -25,7 +25,6 @@ namespace MathWizzz
                 if (studentReader.Read())
                 {
                     Student student = new Student();
-                    student.StudentID = (int)studentReader["StudentId"];
                     student.FirstName = studentReader["FirstName"].ToString();
                     student.StudentLevel = (int)studentReader["StudentLevel"];
                     student.ClassID = (int)studentReader["ClassId"];
@@ -66,8 +65,6 @@ namespace MathWizzz
                 if (studentReader.Read())
                 {
                     Student student = new Student();
-
-                    student.StudentID = (int)studentReader["UserId"];
                     student.firstName = studentReader["FirstName"].ToString();
                     student.lastName = studentReader["LastName"].ToString();
                     student.username = studentReader["UserName"].ToString();
@@ -139,7 +136,6 @@ namespace MathWizzz
                                                 "WHERE StudentId = @StudentId");
 
             command.Parameters.AddWithValue("@RewardPoints", rewardPoints);
-            command.Parameters.AddWithValue("@Student", student.StudentID);
             try
             {
                 connection.Open();
@@ -178,7 +174,6 @@ namespace MathWizzz
                                                 "WHERE StudentId = @StudentId");
 
             command.Parameters.AddWithValue("@ClassId", classId);
-            command.Parameters.AddWithValue("@Student", student.StudentID);
             try
             {
                 connection.Open();
