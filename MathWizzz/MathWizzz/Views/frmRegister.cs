@@ -26,12 +26,51 @@ namespace MathWizzz.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            bool isValid = true;
             bool isInsert = true;
-            isInsert = UserDB.AddUser("insert into Users values('" + txtUserID.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" +
-                txtPassword.Text + "','" + cboRole.SelectedItem.ToString() + "')");
-            if (isInsert == false)
+            Models.User user = new Models.User();
+            user.UserName = txtUserName.Text;
+            user.FirstName = txtFirstName.Text;
+            user.LastName = txtLastName.Text;
+            user.Password = txtPassword.Text;
+            user.UserRole = cboRole.SelectedItem.ToString();
+
+            if (String.IsNullOrWhiteSpace(user.UserName))
             {
-                MessageBox.Show("insert data error");
+                isValid = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.FirstName))
+            {
+                isValid = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.LastName))
+            {
+                isValid = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.Password))
+            {
+                isValid = false;
+            }
+            if (String.IsNullOrWhiteSpace(user.UserRole))
+            {
+                isValid = false;
+            }
+
+            if (isValid == true)
+            {
+                isInsert = UserDB.AddUser("insert into Users values('" + txtUserName.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtPassword.Text + "','" + cboRole.SelectedItem.ToString() + "')");
+                if (isInsert == false)
+                {
+                    MessageBox.Show("insert data error");
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please fill out all of the fields provided.");
             }
         }
     }
