@@ -18,7 +18,7 @@
 
         public SkillLevel(int skillLevelId)
         {
-
+            SkillLevelID = skillLevelId;
         }
 
     }

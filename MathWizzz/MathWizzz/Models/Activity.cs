@@ -15,7 +15,7 @@ namespace MathWizzz
 
         public abstract Question GetNextQuestion();
 
-        public abstract bool CheckAnswer(int answer);
+        public abstract bool CheckAnswer(int studentAnswer);
         public abstract bool StoreActivity();
 
     }
