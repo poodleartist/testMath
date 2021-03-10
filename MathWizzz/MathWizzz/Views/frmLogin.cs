@@ -34,7 +34,7 @@ namespace MathWizzz
 
                     //MessageBox.Show("person role:" + person.userRole);
                     this.Hide();
-                    frmHomePage HomePage = new frmHomePage(int.Parse(person.userId));
+                    frmHomePage HomePage = new frmHomePage(person.userId);
                     HomePage.ShowDialog();
                     this.Show();
             }

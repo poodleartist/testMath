@@ -61,14 +61,14 @@ namespace MathWizzz
         private void btnProfile_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmViewProfile profileForm = new frmViewProfile(int.Parse(student.userId));
+            frmViewProfile profileForm = new frmViewProfile(student.userId);
             profileForm.ShowDialog();
         }
 
         private void btnViewProgression_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmViewProgress viewProgress = new frmViewProgress(int.Parse(student.userId));
+            frmViewProgress viewProgress = new frmViewProgress(student.userId);
             viewProgress.ShowDialog();
             this.Show();
         }

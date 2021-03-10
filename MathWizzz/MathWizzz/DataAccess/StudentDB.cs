@@ -27,7 +27,7 @@ namespace MathWizzz
                     Student student = new Student();
                     student.StudentLevel = (int)studentReader["SkillLevel"];
                     student.ClassID = (int)studentReader["ClassId"];
-                    student.UserId = studentReader["UserId"].ToString();
+                    student.UserId = (int)studentReader["UserId"];
                     student.FirstName = studentReader["FirstName"].ToString();
                     student.LastName = studentReader["LastName"].ToString();
                     student.UserRole = studentReader["UserRole"].ToString();
@@ -49,6 +49,26 @@ namespace MathWizzz
             }
         }
 
+        // We will need to change the class ID it is set to 0 now since we do not have this set up yet.
+        public static bool AddToStudentInfo(string commandText)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText += commandText;
+                    cmd.Connection = MathWizzDB.GetConnection();
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+            }
+        }
 
         // When the student log in this function will check the username and password
         // If the account exist it return a student object.
@@ -80,7 +100,7 @@ namespace MathWizzz
                         student.username = studentReader["UserName"].ToString();
                         student.password = studentReader["Password"].ToString();
                         student.userRole = studentReader["UserRole"].ToString();
-                        student.UserId = studentReader["UserId"].ToString();
+                        student.UserId = (int)studentReader["UserId"];
 
 
                         return student;
@@ -224,8 +244,6 @@ namespace MathWizzz
             }
             return history;
         }
-
-
     }
 }
 
