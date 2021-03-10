@@ -23,7 +23,7 @@ namespace MathWizzz
             string pwd = txtPassword.Text;
             Person person = new Person();
 
-            person = StudentDB.GetStudentInfo(userId, pwd);
+            person = StudentDB.StudentLogin(userId, pwd);
             //If a user is found from the student DB then the homepage will launch for the student.
             if (person != null)
             {

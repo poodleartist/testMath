@@ -22,13 +22,43 @@ namespace MathWizzz.Views
         {
 
                 InitializeComponent();
-                student = StudentDB.GetStudentById(studentID);
+                student = StudentDB.GetStudentInfo(studentID);
 
                 txtFName.Text = student.firstName;
                 txtLName.Text = student.lastName;
                 txtSkillLevel.Text = student.studentLevel.ToString();
                 txtClassID.Text = student.classID.ToString();
             
+        }
+
+        private void btnChangePwd_Click(object sender, EventArgs e)
+        {
+            student = StudentDB.GetStudentInfo(int.Parse(student.UserId));
+            if (student.Password == txtOldPwd.Text)
+            {
+                
+                if(txtNewPwd.Text == txtNewConfirmPwd.Text)
+
+                {
+                    if(StudentDB.UpdatePassword(txtNewConfirmPwd.Text, int.Parse(student.UserId)))
+                    {
+                        MessageBox.Show("Password has been successfully change");
+                        txtOldPwd.Clear();
+                        txtNewPwd.Clear();
+                        txtNewConfirmPwd.Clear();
+                        txtOldPwd.Focus();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail");
+                    }
+                }
+            }
+            else
+            {
+                
+            }
         }
     }
 }

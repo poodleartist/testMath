@@ -53,7 +53,7 @@ namespace MathWizzz
         // When the student log in this function will check the username and password
         // If the account exist it return a student object.
 
-        public static Student GetStudentInfo(string username, string password)
+        public static Student StudentLogin(string username, string password)
         {
             SqlConnection connection = MathWizzDB.GetConnection();
             string selectStatement = " SELECT UserId " +
@@ -81,6 +81,62 @@ namespace MathWizzz
                         student.password = studentReader["Password"].ToString();
                         student.userRole = studentReader["UserRole"].ToString();
                         student.UserId = studentReader["UserId"].ToString();
+
+
+                        return student;
+
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static Student GetStudentInfo(int studentId)
+        {
+            SqlConnection connection = MathWizzDB.GetConnection();
+            string selectStatement = " SELECT UserId " +
+                ", FirstName, LastName, UserName, Password, UserRole,SkillLevel, ClassId  FROM Users JOIN StudentInfo ON Users.UserId = StudentInfo.StudentId " +
+                " WHERE (UserId = @studentId)";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentId", studentId);
+           
+
+            try
+            {
+                connection.Open();
+                SqlDataReader studentReader = selectCommand.ExecuteReader(System.Data.CommandBehavior.SingleRow);
+
+                if (studentReader.HasRows)
+                {
+                    if (studentReader.Read())
+                    {
+                        Student student = new Student();
+                        student.firstName = studentReader["FirstName"].ToString();
+                        student.lastName = studentReader["LastName"].ToString();
+                        student.username = studentReader["UserName"].ToString();
+                        student.password = studentReader["Password"].ToString();
+                        student.userRole = studentReader["UserRole"].ToString();
+                        student.UserId = studentReader["UserId"].ToString();
+                        student.StudentLevel = (int)studentReader["SkillLevel"];
+                        student.ClassID = (int)studentReader["ClassId"];
 
 
                         return student;
@@ -169,6 +225,40 @@ namespace MathWizzz
 
                 // for testing
                 Console.WriteLine("RowsAffected: {0}", rowsAffected);
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return success;
+        }
+
+        public static bool UpdatePassword(string newPassword,int studentId)
+        {
+            bool success = false;
+            
+            SqlConnection connection = MathWizzDB.GetConnection();
+            string command = ("UPDATE Users " +
+                              "SET Password = @newPassword " +
+                              "WHERE UserId = @studentId");
+            SqlCommand updateCommand = new SqlCommand(command, connection);
+
+            updateCommand.Parameters.AddWithValue("@studentId", studentId);
+            updateCommand.Parameters.AddWithValue("@newPassword", newPassword);
+            
+            try
+            {
+                connection.Open();
+                int rowAffected = updateCommand.ExecuteNonQuery();
+
+                success = true;
+                return success;
 
             }
             catch (SqlException ex)

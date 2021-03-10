@@ -66,7 +66,7 @@ namespace MathWizzz.Views
                 else
                 {
                     Student student = new Student();
-                    student = StudentDB.GetStudentInfo(user.UserName, user.Password);
+                    student = StudentDB.StudentLogin(user.UserName, user.Password);
 
                     if (student != null)
                     {
