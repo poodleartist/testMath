@@ -58,31 +58,43 @@ namespace MathWizzz
             string selectStatement = " SELECT UserId " +
                 ", FirstName, LastName, UserName, Password, UserRole  FROM Users " +
                 " WHERE (UserName = @username) AND (Password = @password) ";
+
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
             selectCommand.Parameters.AddWithValue("@username", username);
             selectCommand.Parameters.AddWithValue("@password", password);
+
             try
             {
                 connection.Open();
                 SqlDataReader studentReader = selectCommand.ExecuteReader(System.Data.CommandBehavior.SingleRow);
-                if (studentReader.Read())
+
+                if (studentReader.HasRows)
                 {
-                    Student student = new Student();
-                    student.firstName = studentReader["FirstName"].ToString();
-                    student.lastName = studentReader["LastName"].ToString();
-                    student.username = studentReader["UserName"].ToString();
-                    student.password = studentReader["Password"].ToString();
-                    student.userRole = studentReader["UserRole"].ToString();
-                    student.UserId = studentReader["UserId"].ToString();
+                    if (studentReader.Read())
+                    {
+                        Student student = new Student();
+                        student.firstName = studentReader["FirstName"].ToString();
+                        student.lastName = studentReader["LastName"].ToString();
+                        student.username = studentReader["UserName"].ToString();
+                        student.password = studentReader["Password"].ToString();
+                        student.userRole = studentReader["UserRole"].ToString();
+                        student.UserId = studentReader["UserId"].ToString();
 
 
-                    return student;
+                        return student;
 
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 else
                 {
                     return null;
                 }
+
             }
             catch (Exception ex)
             {
@@ -92,44 +104,6 @@ namespace MathWizzz
             {
                 connection.Close();
             }
-        }
-
-
-        public static bool AddStudent(int UserId)
-        {
-            bool success = false;
-            SqlConnection connection = MathWizzDB.GetConnection();
-            SqlCommand command = new SqlCommand("INSERT INTO StudentInfo(StudentId) +" +
-                                                "VALUES('@UserId', (SELECT UserId" +
-                                                                       "FROM Users" +
-                                                                       "WHERE UserId = " + UserId + "))");
-            try
-            {
-                connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                {
-                    success = true;
-                }
-                else
-                {
-                    success = false;
-                }
-
-                // for testing
-                Console.WriteLine("RowsAffected: {0}", rowsAffected);
-
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return success;
         }
 
         public static bool GivePointsToStudent(Student student, int rewardPoints)

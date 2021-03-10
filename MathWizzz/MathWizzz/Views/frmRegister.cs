@@ -65,7 +65,19 @@ namespace MathWizzz.Views
                 }
                 else
                 {
+                    Student student = new Student();
+                    student = StudentDB.GetStudentInfo(user.UserName, user.Password);
 
+                    if (student != null)
+                    {
+                        frmHomePage HomePage = new frmHomePage(int.Parse(student.userId));
+                        HomePage.ShowDialog();
+                        this.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please try closing this page and signing in, if the issuer persist please email us!");
+                    }
                 }
             }
             else
