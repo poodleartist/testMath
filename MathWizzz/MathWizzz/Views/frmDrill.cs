@@ -20,6 +20,7 @@ namespace MathWizzz
         public frmDrill(Student drillStudent)
         {
             InitializeComponent();
+            Drill = new Drill();
             Student = drillStudent;
 
             // generate SkillLevel object
@@ -29,6 +30,7 @@ namespace MathWizzz
             // generate first Question object.
             Question = new Question(SkillLevel);
             DisplayQuestion();
+            txtAnswer.Select();
         }
 
         public frmDrill()
@@ -37,13 +39,7 @@ namespace MathWizzz
         }
         private void frmDrill_Load(object sender, EventArgs e)
         {
-            // generate SkillLevel object
-            SkillLevel = DataAccess.SkillLevelDB.GetSkillLevel(Student.StudentLevel);
-
-
-            // generate first Question object.
-            Question = new Question(SkillLevel);
-            DisplayQuestion();
+            
         }
 
         private void DisplayQuestion()
@@ -88,7 +84,7 @@ namespace MathWizzz
 
         private void btnCancelDrill_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
 

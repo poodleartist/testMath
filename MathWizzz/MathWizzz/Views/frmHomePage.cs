@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathWizzz.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +60,9 @@ namespace MathWizzz
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            frmViewProfile profileForm = new frmViewProfile(int.Parse(student.userId));
+            profileForm.ShowDialog();
         }
 
         private void btnViewProgression_Click(object sender, EventArgs e)

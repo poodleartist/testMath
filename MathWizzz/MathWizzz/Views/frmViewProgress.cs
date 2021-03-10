@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathWizzz.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,61 +26,23 @@ namespace MathWizzz
 
         private void frmViewProgress_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'mathWizzDataSet.ActivityHistory' table. You can move, or remove it, as needed.
-            this.activityHistoryTableAdapter.Fill(this.mathWizzDataSet.ActivityHistory);
-
-        }
-
-        private void btnLoadData_Click(object sender, EventArgs e)
-        {
-            if (txtEnterStudentId.Text != "")
+            lblName.Text = student.firstName;
+            var historyList = new List<ActivityHistory>();
+            historyList = StudentDB.GetActivityHistory(Convert.ToInt32(student.userId));
+            foreach (ActivityHistory history in historyList)
             {
-                //string studentId = Convert.ToInt32(txtEnterStudentId.Text);
-                string studentId = txtEnterStudentId.Text;
-                this.GetStudent(studentId);
-                if (student == null)
-                {
-                    MessageBox.Show("No student found with that ID. "
-                        + "Please try again.", "Student Not Found");
-                }
-                else
-                {
-                    lblName.Text = student.FirstName;
-                }
-            }
-        }
-
-        private void GetStudent(string studentId)
-        {
-            try
-            {
-                student = StudentDB.GetStudentById(int.Parse(studentId));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
-        private void activityHistoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.activityHistoryBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.mathWizzDataSet);
-
-        }
-
-        private void fillByStudentIDToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.activityHistoryTableAdapter.FillByStudentID(this.mathWizzDataSet.ActivityHistory, ((int)(System.Convert.ChangeType(studentIdToolStripTextBox.Text, typeof(int)))));
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                string singleLine = history.DateTime.ToString() + "\t     " + history.NumberOfQuestions
+                    + "\t     " + history.NumberOfCorrectAnswers + "\t     " + (history.NumberOfCorrectAnswers/history.NumberOfQuestions*100).ToString()
+                    + "\t     " + history.ActivityType;
+                lstViewHistory.Items.Add(singleLine);
             }
 
         }
+
+      
+
+      
+
+      
     }
 }

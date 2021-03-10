@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathWizzz.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -181,6 +182,50 @@ namespace MathWizzz
 
             return success;
         }
+
+        public static List<ActivityHistory> GetActivityHistory(int studentId)
+        {
+            var history = new List<ActivityHistory>();
+            SqlConnection connection = MathWizzDB.GetConnection();
+            string selectStatement = " SELECT DateTime " +
+                ", TotalQuestions, CorrectAnswers, SkillLevel, ActivityType  FROM ActivityHistory " +
+                " WHERE (StudentId = @studentId) ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@studentId", studentId);
+            try
+            {
+                connection.Open();
+                using (SqlDataReader studentReader = selectCommand.ExecuteReader())
+                {
+                    while (studentReader.Read())
+                    {
+
+                        ActivityHistory activity = new ActivityHistory();
+                        activity.DateTime = (DateTime)studentReader["DateTime"];
+                        activity.NumberOfQuestions = (int)studentReader["TotalQuestions"];
+                        activity.NumberOfCorrectAnswers = (int)studentReader["CorrectAnswers"];
+                        activity.SkillLevel = (int)studentReader["SkillLevel"];
+                        activity.ActivityType = studentReader["ActivityType"].ToString();
+
+                        history.Add(activity);
+
+                        //   return activity;
+                    }; 
+                };
+                                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return history;
+        }
+
+
     }
 }
 
