@@ -31,18 +31,19 @@ namespace MathWizzz
             historyList = StudentDB.GetActivityHistory(Convert.ToInt32(student.userId));
             foreach (ActivityHistory history in historyList)
             {
-                string singleLine = history.DateTime.ToString() + "\t     " + history.NumberOfQuestions
-                    + "\t     " + history.NumberOfCorrectAnswers + "\t     " + (history.NumberOfCorrectAnswers/history.NumberOfQuestions*100).ToString()
-                    + "\t     " + history.ActivityType;
+                string singleLine = history.DateTime.ToString() + "                " + history.NumberOfQuestions
+                    + "                              " + history.NumberOfCorrectAnswers + "                              " 
+                    + (Convert.ToDecimal(history.NumberOfCorrectAnswers)/Convert.ToDecimal(history.NumberOfQuestions)).ToString("P")
+                    + "                              " + history.SkillLevel.ToString()
+                    + "                              " + history.ActivityType;
                 lstViewHistory.Items.Add(singleLine);
             }
 
         }
 
-      
-
-      
-
-      
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
