@@ -15,10 +15,12 @@ namespace MathWizzz
         public SkillLevel Skill { get; set; }
 
         public Drill() { }
+
         public Drill(Student student)
         {
             Student = student;
             Skill = SkillLevelDB.GetSkillLevel(Student.StudentLevel);
+            NumberOfAttempts = student.DrillQuestionAttemps;
         }
 
 
@@ -27,6 +29,7 @@ namespace MathWizzz
             // generate new Question
             Question = new Question();
             Question.GenerateQuestionAndAnswer(Skill);
+            NumberOfAttempts = Student.DrillQuestionAttempts;
             return Question;
         }
 
@@ -37,6 +40,9 @@ namespace MathWizzz
             if (isCorrect)
             {
                 NumberOfCorrectAnswers++;
+            } else
+            {
+                NumberOfAttempts--;
             }
 
             NumberOfQuestions++;

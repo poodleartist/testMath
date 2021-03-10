@@ -34,11 +34,6 @@ namespace MathWizzz
             
         }
 
-        private void DisplayQuestion()
-        {
-            txtQuestion.Text = Drill.Question.NewQuestion;
-        }
-
         private void btnSubmitAnswer_Click(object sender, EventArgs e)
         {
             // Validate answer is in proper format
@@ -52,7 +47,18 @@ namespace MathWizzz
                     MessageBox.Show("Incorrect answer.\n\nTry again.", "Incorrect answer.");
                 } else if (!isCorrect)
                 {
-                    MessageBox.Show($"Incorrect answer.\n\nThe correct answer is: {Drill.Question.Answer}", "Incorrect Answer");
+                    if (Drill.NumberOfAttempts > 0)
+                    {
+                        MessageBox.Show("Incorrect, please try again.", "Incorrect Answer");
+
+                    } else
+                    {
+                        MessageBox.Show($"Incorrect answer.\n\nThe correct answer is: {Drill.Question.Answer}", "Incorrect Answer");
+                        txtAnswer.Text = "";
+                        Drill.GetNextQuestion();
+                        txtQuestion.Text = Drill.Question.NewQuestion;
+                    }
+                    
                 } else
                 {
                     MessageBox.Show("Correct!", "Correct Answer");
