@@ -4,7 +4,7 @@ namespace MathWizzz
 {
     public class Question
     {
-        public SkillLevel SkillLevel { get; set; }
+        //public SkillLevel SkillLevel { get; set; }
         public string NewQuestion { get; set; }
         public int Answer { get; set; }
 
@@ -12,39 +12,38 @@ namespace MathWizzz
 
         public Question(SkillLevel skillLevel)
         {
-            SkillLevel = skillLevel;
-            GenerateQuestionAndAnswer();
+            GenerateQuestionAndAnswer(skillLevel);
         }
 
-        public bool CheckAnswer(int newAnswer)
+        public bool CheckAnswer(int studentAnswer)
         {
-            if (Answer == newAnswer)
+            if (Answer == studentAnswer)
                 return true;
             else
                 return false;
         }
 
-        public void GenerateQuestionAndAnswer()
+        public void GenerateQuestionAndAnswer(SkillLevel skill)
         {
             Random random = new Random();
-            int firstOperand = random.Next(SkillLevel.MinValue, SkillLevel.MaxValue);
-            int secondOperand = random.Next(SkillLevel.MinValue, SkillLevel.MaxValue);
+            int firstOperand = random.Next(skill.MinValue, skill.MaxValue);
+            int secondOperand = random.Next(skill.MinValue, skill.MaxValue);
             string mathOperator = "";
-            switch (SkillLevel.MathOperator)
+            switch (skill.MathOperator)
             {
                 case "+":
                     mathOperator = " + ";
                     Answer = firstOperand + secondOperand;
                     break;
-                case "S":
+                case "-":
                     mathOperator = " - ";
                     Answer = firstOperand - secondOperand;
                     break;
-                case "M":
+                case "*":
                     mathOperator = " * ";
                     Answer = firstOperand * secondOperand;
                     break;
-                case "D":
+                case "/":
                     mathOperator = " / ";
                     Answer = firstOperand / secondOperand;
                     break;

@@ -12,31 +12,23 @@ namespace MathWizzz
 {
     public partial class frmDrill : Form
     {
-        public Question Question { get; set; }
-        public SkillLevel SkillLevel { get; set; }
         public Student Student { get; set; }
         public Drill Drill { get; set; }
 
         public frmDrill(Student drillStudent)
         {
             InitializeComponent();
-            Drill = new Drill();
             Student = drillStudent;
-
-            // generate SkillLevel object
-            SkillLevel = DataAccess.SkillLevelDB.GetSkillLevel(Student.StudentLevel);
-
+            Drill = new Drill(drillStudent);
 
             // generate first Question object.
-            Question = new Question(SkillLevel);
-            DisplayQuestion();
+            Drill.GetNextQuestion();
+
+            txtQuestion.Text = Drill.Question.NewQuestion;
+
             txtAnswer.Select();
         }
 
-        public frmDrill()
-        {
-            InitializeComponent();
-        }
         private void frmDrill_Load(object sender, EventArgs e)
         {
             
@@ -44,7 +36,7 @@ namespace MathWizzz
 
         private void DisplayQuestion()
         {
-            txtQuestion.Text = Question.NewQuestion;
+            txtQuestion.Text = Drill.Question.NewQuestion;
         }
 
         private void btnSubmitAnswer_Click(object sender, EventArgs e)
@@ -60,10 +52,13 @@ namespace MathWizzz
                     MessageBox.Show("Incorrect answer.\n\nTry again.", "Incorrect answer.");
                 } else if (!isCorrect)
                 {
-                    MessageBox.Show($"Incorrect answer.\n\nThe correct answer is: {Question.Answer}", "Incorrect Answer");
+                    MessageBox.Show($"Incorrect answer.\n\nThe correct answer is: {Drill.Question.Answer}", "Incorrect Answer");
                 } else
                 {
                     MessageBox.Show("Correct!", "Correct Answer");
+                    txtAnswer.Text = "";
+                    Drill.GetNextQuestion();
+                    txtQuestion.Text = Drill.Question.NewQuestion;
                 }
                 
             } catch (FormatException)

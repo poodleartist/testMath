@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MathWizzz.DataAccess
+namespace MathWizzz
 {
     public class SkillLevelDB
     {

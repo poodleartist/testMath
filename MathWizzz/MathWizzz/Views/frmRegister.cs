@@ -76,7 +76,7 @@ namespace MathWizzz.Views
                     }
                     else
                     {
-                        MessageBox.Show("Please try closing this page and signing in, if the issuer persist please email us!");
+                        MessageBox.Show("Please try closing this page and signing in, if the issue persist please email us!");
                     }
                 }
             }

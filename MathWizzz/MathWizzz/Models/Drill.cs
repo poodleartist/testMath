@@ -11,21 +11,28 @@ namespace MathWizzz
     {
         public int NumberOfAttempts { get; set; }
         public Question Question { get; set; }
+        public Student Student { get; set; }
+        public SkillLevel Skill { get; set; }
 
         public Drill() { }
+        public Drill(Student student)
+        {
+            Student = student;
+            Skill = SkillLevelDB.GetSkillLevel(Student.StudentLevel);
+        }
 
 
         public override Question GetNextQuestion()
         {
             // generate new Question
             Question = new Question();
-            Question.GenerateQuestionAndAnswer();
+            Question.GenerateQuestionAndAnswer(Skill);
             return Question;
         }
 
-        public override bool CheckAnswer(int answer)
+        public override bool CheckAnswer(int studentAnswer)
         {
-            bool isCorrect = Question.CheckAnswer(answer);
+            bool isCorrect = Question.CheckAnswer(studentAnswer);
 
             if (isCorrect)
             {
