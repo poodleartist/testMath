@@ -34,7 +34,7 @@
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnReward = new System.Windows.Forms.Button();
             this.btnViewProgression = new System.Windows.Forms.Button();
-            this.cbxDrill = new System.Windows.Forms.ComboBox();
+            this.cboDrill = new System.Windows.Forms.ComboBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -94,20 +94,20 @@
             this.btnViewProgression.UseVisualStyleBackColor = true;
             this.btnViewProgression.Click += new System.EventHandler(this.btnViewProgression_Click);
             // 
-            // cbxDrill
+            // cboDrill
             // 
-            this.cbxDrill.FormattingEnabled = true;
-            this.cbxDrill.Location = new System.Drawing.Point(258, 352);
-            this.cbxDrill.Name = "cbxDrill";
-            this.cbxDrill.Size = new System.Drawing.Size(380, 39);
-            this.cbxDrill.TabIndex = 5;
-            this.cbxDrill.Text = "Drills";
-            this.cbxDrill.SelectedIndexChanged += new System.EventHandler(this.cbxDrill_SelectedIndexChanged);
+            this.cboDrill.FormattingEnabled = true;
+            this.cboDrill.Location = new System.Drawing.Point(258, 371);
+            this.cboDrill.Name = "cboDrill";
+            this.cboDrill.Size = new System.Drawing.Size(380, 39);
+            this.cboDrill.TabIndex = 5;
+            this.cboDrill.Text = "Drills";
+            this.cboDrill.SelectedIndexChanged += new System.EventHandler(this.cbxDrill_SelectedIndexChanged);
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(252, 105);
+            this.lblWelcome.Location = new System.Drawing.Point(252, 197);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(93, 32);
             this.lblWelcome.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 884);
             this.Controls.Add(this.lblWelcome);
-            this.Controls.Add(this.cbxDrill);
+            this.Controls.Add(this.cboDrill);
             this.Controls.Add(this.btnViewProgression);
             this.Controls.Add(this.btnReward);
             this.Controls.Add(this.btnProfile);
@@ -142,7 +142,7 @@
         private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnReward;
         private System.Windows.Forms.Button btnViewProgression;
-        private System.Windows.Forms.ComboBox cbxDrill;
+        private System.Windows.Forms.ComboBox cboDrill;
         private System.Windows.Forms.Label lblWelcome;
     }
 }
