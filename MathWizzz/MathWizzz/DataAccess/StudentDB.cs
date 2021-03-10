@@ -154,7 +154,7 @@ namespace MathWizzz
                         student.username = studentReader["UserName"].ToString();
                         student.password = studentReader["Password"].ToString();
                         student.userRole = studentReader["UserRole"].ToString();
-                        student.UserId = studentReader["UserId"].ToString();
+                        student.UserId = (int)studentReader["UserId"];
                         student.StudentLevel = (int)studentReader["SkillLevel"];
                         student.ClassID = (int)studentReader["ClassId"];
 

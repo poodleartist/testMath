@@ -33,14 +33,14 @@ namespace MathWizzz.Views
 
         private void btnChangePwd_Click(object sender, EventArgs e)
         {
-            student = StudentDB.GetStudentInfo(int.Parse(student.UserId));
+            student = StudentDB.GetStudentInfo(student.UserId);
             if (student.Password == txtOldPwd.Text)
             {
                 
                 if(txtNewPwd.Text == txtNewConfirmPwd.Text)
 
                 {
-                    if(StudentDB.UpdatePassword(txtNewConfirmPwd.Text, int.Parse(student.UserId)))
+                    if(StudentDB.UpdatePassword(txtNewConfirmPwd.Text, student.UserId))
                     {
                         MessageBox.Show("Password has been successfully change");
                         txtOldPwd.Clear();
