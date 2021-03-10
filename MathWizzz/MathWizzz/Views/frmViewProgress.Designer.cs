@@ -32,8 +32,8 @@ namespace MathWizzz
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "\'Date/Time\\tTotal Questions\\tCorrect Answers\\tGrade Percent\\tSkill Level\\tActivit" +
-                "y Type\'"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            "      Date/Time     | Total Questions | Correct Answers | Grade Percent | Skill L" +
+                "evel | Activity Type"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             this.lblName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.activityHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -41,6 +41,7 @@ namespace MathWizzz
             this.activityHistoryTableAdapter = new MathWizzz.DataAccess.MathWizzDataSetTableAdapters.ActivityHistoryTableAdapter();
             this.tableAdapterManager = new MathWizzz.DataAccess.MathWizzDataSetTableAdapters.TableAdapterManager();
             this.lstViewHistory = new System.Windows.Forms.ListView();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.activityHistoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mathWizzDataSet)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@ namespace MathWizzz
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(276, 127);
+            this.lblName.Location = new System.Drawing.Point(197, 112);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(274, 46);
             this.lblName.TabIndex = 0;
@@ -58,9 +59,10 @@ namespace MathWizzz
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(767, 138);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(93, 173);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(528, 32);
+            this.label1.Size = new System.Drawing.Size(632, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "Here\'s a listing of your accomplishments:";
             // 
@@ -93,16 +95,27 @@ namespace MathWizzz
             listViewItem1});
             this.lstViewHistory.Location = new System.Drawing.Point(12, 256);
             this.lstViewHistory.Name = "lstViewHistory";
-            this.lstViewHistory.Size = new System.Drawing.Size(1755, 595);
+            this.lstViewHistory.Size = new System.Drawing.Size(1836, 595);
             this.lstViewHistory.TabIndex = 8;
             this.lstViewHistory.UseCompatibleStateImageBehavior = false;
             this.lstViewHistory.View = System.Windows.Forms.View.List;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(1039, 112);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(193, 80);
+            this.btnClose.TabIndex = 9;
+            this.btnClose.Text = "Close History";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmViewProgress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1794, 895);
+            this.ClientSize = new System.Drawing.Size(1896, 895);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lstViewHistory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblName);
@@ -125,5 +138,6 @@ namespace MathWizzz
         private DataAccess.MathWizzDataSetTableAdapters.ActivityHistoryTableAdapter activityHistoryTableAdapter;
         private DataAccess.MathWizzDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ListView lstViewHistory;
+        private System.Windows.Forms.Button btnClose;
     }
 }
