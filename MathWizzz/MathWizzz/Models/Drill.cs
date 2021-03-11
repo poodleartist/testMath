@@ -10,6 +10,7 @@ namespace MathWizzz
     public class Drill : Activity
     {
         public int NumberOfAttempts { get; set; }
+        public int DrillQuestionCount { get; set; }
         public Question Question { get; set; }
         public Student Student { get; set; }
         public SkillLevel Skill { get; set; }
@@ -20,17 +21,31 @@ namespace MathWizzz
         {
             Student = student;
             Skill = SkillLevelDB.GetSkillLevel(Student.StudentLevel);
-            NumberOfAttempts = student.DrillQuestionAttemps;
+            NumberOfAttempts = 1; // student.DrillQuestionAttemps;
+            // NumberOfQuestions = 
         }
 
 
         public override Question GetNextQuestion()
         {
-            // generate new Question
-            Question = new Question();
-            Question.GenerateQuestionAndAnswer(Skill);
-            NumberOfAttempts = Student.DrillQuestionAttempts;
-            return Question;
+            if (DrillQuestionCount > 0)
+            {
+                // generate new Question
+                Question = new Question();
+                Question.GenerateQuestionAndAnswer(Skill);
+                NumberOfAttempts = 1; // Student.DrillQuestionAttempts;
+                DrillQuestionCount--;
+                return Question;
+            } else
+            {
+                decimal percentScore = (NumberOfCorrectAnswers / NumberOfQuestions * 100);
+                percentScore = Decimal.Round(percentScore, 0);
+                throw new Exception("Drill is complete.\n\n" +
+                    $"You got {NumberOfCorrectAnswers} out of {NumberOfQuestions} correct for a score of " +
+                    $"{percentScore}%.");
+            }
+            
+            
         }
 
         public override bool CheckAnswer(int studentAnswer)

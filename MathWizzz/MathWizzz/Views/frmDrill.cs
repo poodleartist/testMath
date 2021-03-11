@@ -15,11 +15,12 @@ namespace MathWizzz
         public Student Student { get; set; }
         public Drill Drill { get; set; }
 
-        public frmDrill(Student drillStudent)
+        public frmDrill(Student drillStudent, int numQuestions)
         {
             InitializeComponent();
             Student = drillStudent;
             Drill = new Drill(drillStudent);
+            Drill.DrillQuestionCount = numQuestions;
 
             // generate first Question object.
             Drill.GetNextQuestion();
@@ -36,56 +37,59 @@ namespace MathWizzz
 
         private void btnSubmitAnswer_Click(object sender, EventArgs e)
         {
-            // Validate answer is in proper format
             try
             {
-                
+
                 int answer = int.Parse(txtAnswer.Text);
                 bool isCorrect = Drill.CheckAnswer(answer);
                 if (!isCorrect && Drill.NumberOfAttempts > 0)
                 {
                     MessageBox.Show("Incorrect answer.\n\nTry again.", "Incorrect answer.");
-                } else if (!isCorrect)
+                }
+                else if (!isCorrect)
                 {
                     if (Drill.NumberOfAttempts > 0)
                     {
                         MessageBox.Show("Incorrect, please try again.", "Incorrect Answer");
 
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show($"Incorrect answer.\n\nThe correct answer is: {Drill.Question.Answer}", "Incorrect Answer");
                         txtAnswer.Text = "";
                         Drill.GetNextQuestion();
                         txtQuestion.Text = Drill.Question.NewQuestion;
                     }
-                    
-                } else
+
+                }
+                else
                 {
                     MessageBox.Show("Correct!", "Correct Answer");
                     txtAnswer.Text = "";
                     Drill.GetNextQuestion();
                     txtQuestion.Text = Drill.Question.NewQuestion;
                 }
-                
-            } catch (FormatException)
+
+            }
+            catch (FormatException)
             {
                 MessageBox.Show("Please enter a number.", e.GetType().ToString());
-            } catch (Exception f)
-            {
-                MessageBox.Show(f.Message, f.GetType().ToString());
             }
-            // Compare user's answer with answer property of Question object
-
-            // Display if answer is correct or not to user (Modal pop-up?)
-
-            // If answer was correct or user is out of attempts, load new question.
-            // Otherwise, clear Answer field and put cursor there.
-
+            catch (Exception f)
+            {
+                MessageBox.Show(f.Message);
+                this.Hide();
+                frmHomePage HomePage = new frmHomePage(int.Parse(Student.UserId));
+                HomePage.ShowDialog();
+                //this.Close();
+            }
         }
 
         private void btnCancelDrill_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            frmHomePage HomePage = new frmHomePage(int.Parse(Student.UserId));
+            HomePage.ShowDialog();
         }
 
 
