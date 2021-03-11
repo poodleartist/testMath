@@ -8,7 +8,7 @@ namespace MathWizzz
 {
     public class Person
     {
-        public string userId;
+        public int userId;
         public string lastName;
         public string firstName;
         public string userRole;
@@ -21,7 +21,7 @@ namespace MathWizzz
 
         }
         //Constructor
-        public Person(string usrId,string lName, string fName, string uRole, string uname, string password)
+        public Person(int usrId,string lName, string fName, string uRole, string uname, string password)
         {
             this.userId = usrId;
             this.lastName = lName;
@@ -32,7 +32,7 @@ namespace MathWizzz
         }
         //Getter and setter for the private proprerties
 
-        public string UserId
+        public int UserId
         {
             get
             {

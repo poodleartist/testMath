@@ -22,8 +22,9 @@ namespace MathWizzz
         public frmHomePage()
         {
             InitializeComponent();
+            
             foreach (int i in numOfQuestion )
-            cbxDrill.Items.Add(i);
+            cboDrill.Items.Add(i);
         }
 
         //Pass the student object to the form and display the student info.
@@ -32,11 +33,13 @@ namespace MathWizzz
             Student student = new Student();
 
             student = StudentDB.GetStudentById(studentID);
-
             this.student = student;
+
+            
             InitializeComponent();
+            
             foreach (int i in numOfQuestion)
-            cbxDrill.Items.Add(i);
+            cboDrill.Items.Add(i);
 
             lblWelcome.Text = student.FirstName + " " + student.LastName;
             
@@ -51,7 +54,7 @@ namespace MathWizzz
         //When the user make a number of question selection load the question and show the drill form.
         private void cbxDrill_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int numQuestion = Int16.Parse(cbxDrill.Text);            
+            int numQuestion = Int16.Parse(cboDrill.Text);            
             this.Hide();
             frmDrill DrillForm = new frmDrill(student, Convert.ToInt32(cbxDrill.Text));
             DrillForm.ShowDialog();
@@ -61,14 +64,14 @@ namespace MathWizzz
         private void btnProfile_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmViewProfile profileForm = new frmViewProfile(int.Parse(student.userId));
+            frmViewProfile profileForm = new frmViewProfile(student.userId);
             profileForm.ShowDialog();
         }
 
         private void btnViewProgression_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmViewProgress viewProgress = new frmViewProgress(int.Parse(student.userId));
+            frmViewProgress viewProgress = new frmViewProgress(student.userId);
             viewProgress.ShowDialog();
             this.Show();
         }

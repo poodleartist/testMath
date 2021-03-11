@@ -28,6 +28,8 @@ namespace MathWizzz.Views
         {
             bool isValid = true;
             bool isInsert = true;
+            bool addToStudentInfo = false;
+
             Models.User user = new Models.User();
             user.UserName = txtUserName.Text;
             user.FirstName = txtFirstName.Text;
@@ -66,11 +68,13 @@ namespace MathWizzz.Views
                 else
                 {
                     Student student = new Student();
-                    student = StudentDB.GetStudentInfo(user.UserName, user.Password);
+                    student = StudentDB.StudentLogin(user.UserName, user.Password);
 
                     if (student != null)
                     {
-                        frmHomePage HomePage = new frmHomePage(int.Parse(student.userId));
+                        addToStudentInfo = StudentDB.AddToStudentInfo("INSERT INTO StudentInfo (StudentId) " +
+                                                "VALUES ('" + student.UserId + "')");
+                        frmHomePage HomePage = new frmHomePage(student.userId);
                         HomePage.ShowDialog();
                         this.Show();
                     }

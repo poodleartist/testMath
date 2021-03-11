@@ -27,7 +27,7 @@ namespace MathWizzz
                     Student student = new Student();
                     student.StudentLevel = (int)studentReader["SkillLevel"];
                     student.ClassID = (int)studentReader["ClassId"];
-                    student.UserId = studentReader["UserId"].ToString();
+                    student.UserId = (int)studentReader["UserId"];
                     student.FirstName = studentReader["FirstName"].ToString();
                     student.LastName = studentReader["LastName"].ToString();
                     student.UserRole = studentReader["UserRole"].ToString();
@@ -49,11 +49,31 @@ namespace MathWizzz
             }
         }
 
+        // We will need to change the class ID it is set to 0 now since we do not have this set up yet.
+        public static bool AddToStudentInfo(string commandText)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText += commandText;
+                    cmd.Connection = MathWizzDB.GetConnection();
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+            }
+        }
 
         // When the student log in this function will check the username and password
         // If the account exist it return a student object.
 
-        public static Student GetStudentInfo(string username, string password)
+        public static Student StudentLogin(string username, string password)
         {
             SqlConnection connection = MathWizzDB.GetConnection();
             string selectStatement = " SELECT UserId " +
@@ -80,7 +100,63 @@ namespace MathWizzz
                         student.username = studentReader["UserName"].ToString();
                         student.password = studentReader["Password"].ToString();
                         student.userRole = studentReader["UserRole"].ToString();
-                        student.UserId = studentReader["UserId"].ToString();
+                        student.UserId = (int)studentReader["UserId"];
+
+
+                        return student;
+
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static Student GetStudentInfo(int studentId)
+        {
+            SqlConnection connection = MathWizzDB.GetConnection();
+            string selectStatement = " SELECT UserId " +
+                ", FirstName, LastName, UserName, Password, UserRole,SkillLevel, ClassId  FROM Users JOIN StudentInfo ON Users.UserId = StudentInfo.StudentId " +
+                " WHERE (UserId = @studentId)";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentId", studentId);
+           
+
+            try
+            {
+                connection.Open();
+                SqlDataReader studentReader = selectCommand.ExecuteReader(System.Data.CommandBehavior.SingleRow);
+
+                if (studentReader.HasRows)
+                {
+                    if (studentReader.Read())
+                    {
+                        Student student = new Student();
+                        student.firstName = studentReader["FirstName"].ToString();
+                        student.lastName = studentReader["LastName"].ToString();
+                        student.username = studentReader["UserName"].ToString();
+                        student.password = studentReader["Password"].ToString();
+                        student.userRole = studentReader["UserRole"].ToString();
+                        student.UserId = (int)studentReader["UserId"];
+                        student.StudentLevel = (int)studentReader["SkillLevel"];
+                        student.ClassID = (int)studentReader["ClassId"];
 
 
                         return student;
@@ -183,6 +259,40 @@ namespace MathWizzz
             return success;
         }
 
+        public static bool UpdatePassword(string newPassword,int studentId)
+        {
+            bool success = false;
+            
+            SqlConnection connection = MathWizzDB.GetConnection();
+            string command = ("UPDATE Users " +
+                              "SET Password = @newPassword " +
+                              "WHERE UserId = @studentId");
+            SqlCommand updateCommand = new SqlCommand(command, connection);
+
+            updateCommand.Parameters.AddWithValue("@studentId", studentId);
+            updateCommand.Parameters.AddWithValue("@newPassword", newPassword);
+            
+            try
+            {
+                connection.Open();
+                int rowAffected = updateCommand.ExecuteNonQuery();
+
+                success = true;
+                return success;
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return success;
+        }
+
         public static List<ActivityHistory> GetActivityHistory(int studentId)
         {
             var history = new List<ActivityHistory>();
@@ -224,8 +334,6 @@ namespace MathWizzz
             }
             return history;
         }
-
-
     }
 }
 
