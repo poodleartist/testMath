@@ -56,7 +56,7 @@ namespace MathWizzz
         {
             int numQuestion = Int16.Parse(cboDrill.Text);            
             this.Hide();
-            frmDrill DrillForm = new frmDrill(student, Convert.ToInt32(cbxDrill.Text));
+            frmDrill DrillForm = new frmDrill(student, Convert.ToInt32(cboDrill.Text));
             DrillForm.ShowDialog();
 
         }

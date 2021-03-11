@@ -68,6 +68,7 @@ namespace MathWizzz
                     txtAnswer.Text = "";
                     Drill.GetNextQuestion();
                     txtQuestion.Text = Drill.Question.NewQuestion;
+                    txtAnswer.Focus();
                 }
 
             }
@@ -79,7 +80,7 @@ namespace MathWizzz
             {
                 MessageBox.Show(f.Message);
                 this.Hide();
-                frmHomePage HomePage = new frmHomePage(int.Parse(Student.UserId));
+                frmHomePage HomePage = new frmHomePage(Student.UserId);
                 HomePage.ShowDialog();
                 //this.Close();
             }
@@ -88,7 +89,7 @@ namespace MathWizzz
         private void btnCancelDrill_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmHomePage HomePage = new frmHomePage(int.Parse(Student.UserId));
+            frmHomePage HomePage = new frmHomePage(Student.UserId);
             HomePage.ShowDialog();
         }
 
