@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathWizzz.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,8 +45,6 @@ namespace MathWizzz
                     $"You got {NumberOfCorrectAnswers} out of {NumberOfQuestions} correct for a score of " +
                     $"{percentScore}%.");
             }
-            
-            
         }
 
         public override bool CheckAnswer(int studentAnswer)
@@ -68,7 +67,7 @@ namespace MathWizzz
         public override bool StoreActivity()
         {
             // Save completed Drill to the database. Auto-increment Activity ID in database.
-
+            DrillDB.AddCompletedDrill(this, Student, );
 
 
             return true;
