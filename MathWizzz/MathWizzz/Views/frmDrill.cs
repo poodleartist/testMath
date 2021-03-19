@@ -81,7 +81,7 @@ namespace MathWizzz
             {
                 MessageBox.Show(f.Message);
                 // I am not understanding what the Activity History class is for, so I'm not sure how to call this method
-                //DrillDB.AddCompletedDrill(Drill, Student, ???);
+                DrillDB.AddCompletedDrill(Drill, Student);
                 this.Hide();
                 frmHomePage HomePage = new frmHomePage(Student.UserId);
                 HomePage.ShowDialog();

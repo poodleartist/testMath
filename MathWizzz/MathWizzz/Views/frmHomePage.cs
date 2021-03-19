@@ -1,4 +1,5 @@
-﻿using MathWizzz.Views;
+﻿using MathWizzz.DataAccess;
+using MathWizzz.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +61,6 @@ namespace MathWizzz
             this.Hide();
             frmDrill DrillForm = new frmDrill(student, Convert.ToInt32(cboDrill.Text));
             DrillForm.ShowDialog();
-
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

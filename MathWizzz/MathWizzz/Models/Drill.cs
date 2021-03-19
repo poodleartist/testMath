@@ -67,7 +67,7 @@ namespace MathWizzz
         public override bool StoreActivity()
         {
             // Save completed Drill to the database. Auto-increment Activity ID in database.
-            DrillDB.AddCompletedDrill(this, Student, );
+            DrillDB.AddCompletedDrill(this, Student);
 
 
             return true;

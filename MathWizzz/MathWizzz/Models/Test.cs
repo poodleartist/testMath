@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathWizzz.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,6 @@ namespace MathWizzz.Models
 {
     public class Test : Activity
     {
-        public int TestQuestionCount { get; set; }
         public Question Question { get; set; }
         public Student Student { get; set; }
         public SkillLevel Skill { get; set; }
@@ -36,13 +36,12 @@ namespace MathWizzz.Models
 
         public override Question GetNextQuestion()
         {
-            if (TestQuestionCount > 0)
+            if (NumberOfQuestions > 0)
             {
                 // generate new Question
                 Question = new Question();
                 Question.GenerateQuestionAndAnswer(Skill);
-                //NumberOfAttempts = 1; // Student.DrillQuestionAttempts;
-                TestQuestionCount--;
+                NumberOfQuestions--;
                 return Question;
             }
             else
@@ -58,7 +57,7 @@ namespace MathWizzz.Models
         public override bool StoreActivity()
         {
             // Save completed Test to the database. Auto-increment Activity ID in database.
-
+            TestDB.AddCompletedTest(this, Student);
 
             return true;
         }

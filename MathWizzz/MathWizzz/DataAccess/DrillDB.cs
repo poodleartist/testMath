@@ -11,37 +11,35 @@ namespace MathWizzz.DataAccess
     {
         
         
-        public static bool AddCompletedDrill(Drill drill, Student student, Models.ActivityHistory activity)
+        public static bool AddCompletedDrill(Drill drill, Student student)
         {
-            bool success = false;
             DateTime currentDateTime = new DateTime();
             currentDateTime = DateTime.UtcNow;
 
-            SqlConnection connectionString = new SqlConnection();
-            SqlCommand command = new SqlCommand("INSERT INTO ActivityHistory (StudentId, DateTime, TotalQuestions, CorrectAnswers, SkillLevel, ActivityType)" +
-                "VALUES ('@StudentId', '@DateTime', '@TotalQuestions', '@CorrectAnswers', '@SkillLevel', '@ActivityType')");
+            SqlConnection connection = new SqlConnection();
+            String selectStatement = "INSERT INTO ActivityHistory (StudentId, DateTime, TotalQuestions, CorrectAnswers, SkillLevel, ActivityType)" +
+                "VALUES ('@StudentId', '@DateTime', '@TotalQuestions', '@CorrectAnswers', '@SkillLevel', '@ActivityType'";
+            SqlCommand command = new SqlCommand(selectStatement, connection);
 
             command.Parameters.AddWithValue("@StudentId", student.UserId);
             command.Parameters.AddWithValue("@DateTime", currentDateTime);
             command.Parameters.AddWithValue("@TotalQuestions", drill.NumberOfQuestions);
             command.Parameters.AddWithValue("@CorrectAnswers", drill.NumberOfCorrectAnswers);
             command.Parameters.AddWithValue("@SkillLevel", drill.SkillLevel);
-            command.Parameters.AddWithValue("@ActivityType", activity.ActivityType);
-
-            command.Connection = connectionString;
+            command.Parameters.AddWithValue("@ActivityType", "Drill");
 
             try
             {
-                connectionString.Open();
+                connection.Open();
 
                 int rowsAffected = command.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
-                    success = true;
+                    return true;
                 }
                 else
                 {
-                    success = false;
+                    return false;
                 }
             }
             catch (SqlException ex)
@@ -50,10 +48,8 @@ namespace MathWizzz.DataAccess
             }
             finally
             {
-                connectionString.Close();
+                connection.Close();
             }
-
-            return success;
         }
     }
 }

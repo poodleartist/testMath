@@ -11,7 +11,7 @@ namespace MathWizzz.DataAccess
     public class TestDB
     {
 
-        public static bool AddCompletedTest (Test test, Student student, Models.ActivityHistory activity)
+        public static bool AddCompletedTest (Test test, Student student)
         {
             bool success = false;
             DateTime currentDateTime = new DateTime();
@@ -27,7 +27,7 @@ namespace MathWizzz.DataAccess
             //command.Parameters.AddWithValue("@TotalQuestions", test.NumberOfQuestions);
             command.Parameters.AddWithValue("@CorrectAnswers", test.NumberOfCorrectAnswers);
             command.Parameters.AddWithValue("@SkillLevel", test.SkillLevel);
-            command.Parameters.AddWithValue("@ActivityType", activity.ActivityType);
+            command.Parameters.AddWithValue("@ActivityType", "Test");
             command.Parameters.AddWithValue("@ActivityID", test.ActivityID);
 
             command.Connection = connectionString;
@@ -113,7 +113,7 @@ namespace MathWizzz.DataAccess
                 {
                     Test test = new Test(student);
 
-                    test.TestQuestionCount = (int)studentReader["TotalQuestions"];
+                    test.NumberOfQuestions = (int)studentReader["TotalQuestions"];
 
                     return test;
                 }
