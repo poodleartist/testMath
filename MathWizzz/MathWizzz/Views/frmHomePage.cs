@@ -44,6 +44,8 @@ namespace MathWizzz
             lblWelcome.Text = student.FirstName + " " + student.LastName;
             
             //lblWelcome.Text = "ABC" + " " + "CDE";
+
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

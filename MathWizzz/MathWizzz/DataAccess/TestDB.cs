@@ -57,5 +57,79 @@ namespace MathWizzz.DataAccess
 
             return success;
         }
+
+        public static bool CheckForNewTest(Student student)
+        {
+            SqlConnection connection = new SqlConnection();
+            string selectStatement = "SELECT StudentId, DateTime, ActivityType" +
+                "FROM ActivityHistory" +
+                "WHERE StudentId = @StudentId AND DateTime = @DateTime";
+
+            SqlCommand command = new SqlCommand(selectStatement, connection);
+            command.Parameters.AddWithValue("@StudentId", student.UserId);
+            command.Parameters.AddWithValue("@DateTime", null);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader studentReader = command.ExecuteReader();
+                if (studentReader.Read())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
+        public static Test GetTest(Student student)
+        {
+            SqlConnection connection = new SqlConnection();
+            string selectStatement = "SELECT TotalQuestions" +
+                "FROM ActivityHistory" +
+                "WHERE StudentId = @StudentId " +
+                "AND DateTime = @DateTime";
+
+            SqlCommand command = new SqlCommand(selectStatement, connection);
+            command.Parameters.AddWithValue("@StudentId", student.UserId);
+            command.Parameters.AddWithValue("@DateTime", null);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader studentReader = command.ExecuteReader();
+                if (studentReader.Read())
+                {
+                    Test test = new Test(student);
+
+                    test.TestQuestionCount = (int)studentReader["TotalQuestions"];
+
+                    return test;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
