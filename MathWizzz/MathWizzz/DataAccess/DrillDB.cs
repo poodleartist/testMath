@@ -29,7 +29,7 @@ namespace MathWizzz.DataAccess
 
             try
             {
-                connection.Open();
+                connectionString.Open();
 
                 int rowsAffected = command.ExecuteNonQuery();
                 if (rowsAffected > 0)
@@ -47,7 +47,7 @@ namespace MathWizzz.DataAccess
             }
             finally
             {
-                connection.Close();
+                connectionString.Close();
             }
         }
     }
