@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathWizzz.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -79,10 +80,11 @@ namespace MathWizzz
             catch (Exception f)
             {
                 MessageBox.Show(f.Message);
+                // I am not understanding what the Activity History class is for, so I'm not sure how to call this method
+                DrillDB.AddCompletedDrill(Drill, Student);
                 this.Hide();
                 frmHomePage HomePage = new frmHomePage(Student.UserId);
                 HomePage.ShowDialog();
-                //this.Close();
             }
         }
 

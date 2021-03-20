@@ -4,47 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace MathWizzz
+namespace MathWizzz.Models
 {
-    public class Drill : Activity
+    public class Test : Activity
     {
-        public int NumberOfAttempts { get; set; }
-        public int DrillQuestionCount { get; set; }
         public Question Question { get; set; }
         public Student Student { get; set; }
         public SkillLevel Skill { get; set; }
 
-        public Drill() { }
 
-        public Drill(Student student)
+        public Test (Student student)
         {
             Student = student;
             Skill = SkillLevelDB.GetSkillLevel(Student.StudentLevel);
-            NumberOfAttempts = 1; // student.DrillQuestionAttemps;
-            // NumberOfQuestions = 
-        }
-
-
-        public override Question GetNextQuestion()
-        {
-            if (DrillQuestionCount > 0)
-            {
-                // generate new Question
-                Question = new Question();
-                Question.GenerateQuestionAndAnswer(Skill);
-                NumberOfAttempts = 1; // Student.DrillQuestionAttempts;
-                DrillQuestionCount--;
-                return Question;
-            } else
-            {
-                decimal percentScore = (NumberOfCorrectAnswers / NumberOfQuestions * 100);
-                percentScore = Decimal.Round(percentScore, 0);
-                throw new Exception("Drill is complete.\n\n" +
-                    $"You got {NumberOfCorrectAnswers} out of {NumberOfQuestions} correct for a score of " +
-                    $"{percentScore}%.");
-            }
         }
 
         public override bool CheckAnswer(int studentAnswer)
@@ -54,9 +27,6 @@ namespace MathWizzz
             if (isCorrect)
             {
                 NumberOfCorrectAnswers++;
-            } else
-            {
-                NumberOfAttempts--;
             }
 
             NumberOfQuestions++;
@@ -64,11 +34,30 @@ namespace MathWizzz
             return isCorrect;
         }
 
+        public override Question GetNextQuestion()
+        {
+            if (NumberOfQuestions > 0)
+            {
+                // generate new Question
+                Question = new Question();
+                Question.GenerateQuestionAndAnswer(Skill);
+                NumberOfQuestions--;
+                return Question;
+            }
+            else
+            {
+                decimal percentScore = (NumberOfCorrectAnswers / NumberOfQuestions * 100);
+                percentScore = Decimal.Round(percentScore, 0);
+                throw new Exception("Test is complete.\n\n" +
+                    $"You got {NumberOfCorrectAnswers} out of {NumberOfQuestions} correct for a score of " +
+                    $"{percentScore}%.");
+            }
+        }
+
         public override bool StoreActivity()
         {
-            // Save completed Drill to the database. Auto-increment Activity ID in database.
-            DrillDB.AddCompletedDrill(this, Student);
-
+            // Save completed Test to the database. Auto-increment Activity ID in database.
+            TestDB.AddCompletedTest(this, Student);
 
             return true;
         }

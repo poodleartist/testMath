@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace MathWizzz.DataAccess
 {
-    class DrillDB
+    public class DrillDB
     {
-        public static bool AddCompletedDrill(Drill drill, Student student, Models.ActivityHistory activity)
+        
+        
+        public static bool AddCompletedDrill(Drill drill, Student student)
         {
-            bool success = false;
             DateTime currentDateTime = new DateTime();
             currentDateTime = DateTime.UtcNow;
 
@@ -24,22 +25,20 @@ namespace MathWizzz.DataAccess
             command.Parameters.AddWithValue("@TotalQuestions", drill.NumberOfQuestions);
             command.Parameters.AddWithValue("@CorrectAnswers", drill.NumberOfCorrectAnswers);
             command.Parameters.AddWithValue("@SkillLevel", drill.SkillLevel);
-            command.Parameters.AddWithValue("@ActivityType", activity.ActivityType);
-
-            command.Connection = connectionString;
+            command.Parameters.AddWithValue("@ActivityType", "Drill");
 
             try
             {
-                connectionString.Open();
+                connection.Open();
 
                 int rowsAffected = command.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
-                    success = true;
+                    return true;
                 }
                 else
                 {
-                    success = false;
+                    return false;
                 }
             }
             catch (SqlException ex)
@@ -48,10 +47,8 @@ namespace MathWizzz.DataAccess
             }
             finally
             {
-                connectionString.Close();
+                connection.Close();
             }
-
-            return success;
         }
     }
 }

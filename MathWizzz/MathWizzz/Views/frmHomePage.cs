@@ -1,4 +1,5 @@
-﻿using MathWizzz.Views;
+﻿using MathWizzz.DataAccess;
+using MathWizzz.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,6 +45,8 @@ namespace MathWizzz
             lblWelcome.Text = student.FirstName + " " + student.LastName;
             
             //lblWelcome.Text = "ABC" + " " + "CDE";
+
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,7 +61,6 @@ namespace MathWizzz
             this.Hide();
             frmDrill DrillForm = new frmDrill(student, Convert.ToInt32(cboDrill.Text));
             DrillForm.ShowDialog();
-
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

@@ -65,9 +65,11 @@
   <ItemGroup>
     <Compile Include="DataAccess\DrillDB.cs" />
     <Compile Include="DataAccess\SkillLevelDB.cs" />
+    <Compile Include="DataAccess\TestDB.cs" />
     <Compile Include="DataAccess\UserDB.cs" />
     <Compile Include="Models\ActivityHistory.cs" />
     <Compile Include="Models\Drill.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Views\frmDrill.cs">
       <SubType>Form</SubType>
