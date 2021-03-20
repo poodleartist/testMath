@@ -60,28 +60,24 @@ namespace MathWizzz.Views
 
             if (isValid == true)
             {
-                isInsert = UserDB.AddUser("insert into Users values('" + txtUserName.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtPassword.Text + "','" + cboRole.SelectedItem.ToString() + "')");
+                isInsert = UserDB.AddUser("insert into Users values('" + txtUserName.Text + "','" + txtPassword.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" + cboRole.SelectedItem.ToString() + "')");
                 if (isInsert == false)
                 {
                     MessageBox.Show("insert data error");
                 }
                 else
                 {
-                    Student student = new Student();
-                    student = StudentDB.StudentLogin(user.UserName, user.Password);
+                    //After inserting the new user create a student and get that student info and store it in student
+                    //Set the skill to 1 and default number of question to 20 so that student can take a placement test - Tai
 
-                    if (student != null)
-                    {
-                        addToStudentInfo = StudentDB.AddToStudentInfo("INSERT INTO StudentInfo (StudentId) " +
-                                                "VALUES ('" + student.UserId + "')");
-                        frmHomePage HomePage = new frmHomePage(student.userId);
-                        HomePage.ShowDialog();
-                        this.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please try closing this page and signing in, if the issue persist please email us!");
-                    }
+                    Student student = new Student();
+                    student = StudentDB.StudentLogin(txtUserName.Text, txtPassword.Text);
+                    student.StudentLevel = 1;
+                    student.classID = Convert.ToInt16(txtClassroom.Text);
+                    int numQuestion = 10;
+                    frmPlacementTest placement = new frmPlacementTest(student, numQuestion);
+                    placement.ShowDialog();
+                    
                 }
             }
             else

@@ -49,6 +49,25 @@ namespace MathWizzz
 
         }
 
+        public frmHomePage(Student student)
+        {
+
+            
+            this.student = student;
+
+
+            InitializeComponent();
+
+            foreach (int i in numOfQuestion)
+                cboDrill.Items.Add(i);
+
+            lblWelcome.Text = student.FirstName + " " + student.LastName;
+
+            //lblWelcome.Text = "ABC" + " " + "CDE";
+
+
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -73,7 +92,7 @@ namespace MathWizzz
         private void btnViewProgression_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmViewProgress viewProgress = new frmViewProgress(student.userId);
+            frmViewProgress viewProgress = new frmViewProgress(student);
             viewProgress.ShowDialog();
             this.Show();
         }

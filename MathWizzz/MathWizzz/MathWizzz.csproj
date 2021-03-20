@@ -65,10 +65,12 @@
   <ItemGroup>
     <Compile Include="DataAccess\DrillDB.cs" />
     <Compile Include="DataAccess\SkillLevelDB.cs" />
+    <Compile Include="DataAccess\StudentInfoDB.cs" />
     <Compile Include="DataAccess\TestDB.cs" />
     <Compile Include="DataAccess\UserDB.cs" />
     <Compile Include="Models\ActivityHistory.cs" />
     <Compile Include="Models\Drill.cs" />
+    <Compile Include="Models\PlacementTest.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Views\frmDrill.cs">
@@ -88,6 +90,12 @@
     </Compile>
     <Compile Include="Views\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmPlacementTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmPlacementTest.Designer.cs">
+      <DependentUpon>frmPlacementTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmRegister.cs">
       <SubType>Form</SubType>
@@ -129,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmPlacementTest.resx">
+      <DependentUpon>frmPlacementTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>

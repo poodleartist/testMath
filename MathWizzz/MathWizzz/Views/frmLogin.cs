@@ -22,6 +22,7 @@ namespace MathWizzz
             string userId = txtUsername.Text;
             string pwd = txtPassword.Text;
             Person person = new Person();
+            
 
             person = StudentDB.StudentLogin(userId, pwd);
             //If a user is found from the student DB then the homepage will launch for the student.
@@ -29,8 +30,7 @@ namespace MathWizzz
             {
                 if (person.userRole == "Student" || person.userRole == "student")
                 {
-                    //Student stu = new Student();
-                    //stu = StudentDB.GetStudentById(int.Parse(userId));
+
 
                     //MessageBox.Show("person role:" + person.userRole);
                     this.Hide();

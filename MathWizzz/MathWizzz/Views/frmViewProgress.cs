@@ -24,6 +24,14 @@ namespace MathWizzz
             InitializeComponent();
         }
 
+        public frmViewProgress(Student student)
+        {
+
+            this.student = student;
+            this.student = student;
+            InitializeComponent();
+        }
+
         private void frmViewProgress_Load(object sender, EventArgs e)
         {
             lblName.Text = student.firstName;
