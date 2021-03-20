@@ -15,9 +15,9 @@ namespace MathWizzz.DataAccess
             DateTime currentDateTime = new DateTime();
             currentDateTime = DateTime.UtcNow;
 
-            SqlConnection connectionString = new SqlConnection();
-            SqlCommand command = new SqlCommand("INSERT (StudentId, DateTime, TotalQuestions, CorrectAnswers, SkillLevel, ActivityType)" +
-                "VALUES ('@StudentId', '@DateTime', '@TotalQuestions', '@CorrectAnswers', '@SkillLevel', '@ActivityType')");
+            SqlConnection connectionString = MathWizzDB.GetConnection();
+            SqlCommand command = new SqlCommand("INSERT INTO ActivityHistory (StudentId, DateTime, TotalQuestions, CorrectAnswers, SkillLevel, ActivityType) " +
+                "VALUES (@StudentId, @DateTime, @TotalQuestions, @CorrectAnswers, @SkillLevel, @ActivityType)");
 
             command.Parameters.AddWithValue("@StudentId", student.UserId);
             command.Parameters.AddWithValue("@DateTime", currentDateTime);
