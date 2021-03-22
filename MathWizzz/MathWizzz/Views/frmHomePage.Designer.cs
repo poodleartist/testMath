@@ -48,30 +48,30 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(446, 26);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(334, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // btnProfile
             // 
-            this.btnProfile.Location = new System.Drawing.Point(129, 134);
-            this.btnProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProfile.Location = new System.Drawing.Point(97, 109);
+            this.btnProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(190, 34);
+            this.btnProfile.Size = new System.Drawing.Size(142, 28);
             this.btnProfile.TabIndex = 1;
             this.btnProfile.Text = "Profile";
             this.btnProfile.UseVisualStyleBackColor = true;
@@ -79,20 +79,20 @@
             // 
             // btnReward
             // 
-            this.btnReward.Location = new System.Drawing.Point(129, 231);
-            this.btnReward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReward.Location = new System.Drawing.Point(97, 188);
+            this.btnReward.Margin = new System.Windows.Forms.Padding(2);
             this.btnReward.Name = "btnReward";
-            this.btnReward.Size = new System.Drawing.Size(190, 34);
+            this.btnReward.Size = new System.Drawing.Size(142, 28);
             this.btnReward.TabIndex = 3;
             this.btnReward.Text = "Reward Points";
             this.btnReward.UseVisualStyleBackColor = true;
             // 
             // btnViewProgression
             // 
-            this.btnViewProgression.Location = new System.Drawing.Point(129, 281);
-            this.btnViewProgression.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewProgression.Location = new System.Drawing.Point(97, 228);
+            this.btnViewProgression.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewProgression.Name = "btnViewProgression";
-            this.btnViewProgression.Size = new System.Drawing.Size(190, 34);
+            this.btnViewProgression.Size = new System.Drawing.Size(142, 28);
             this.btnViewProgression.TabIndex = 4;
             this.btnViewProgression.Text = "View Progression";
             this.btnViewProgression.UseVisualStyleBackColor = true;
@@ -101,10 +101,10 @@
             // cboDrill
             // 
             this.cboDrill.FormattingEnabled = true;
-            this.cboDrill.Location = new System.Drawing.Point(129, 191);
-            this.cboDrill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboDrill.Location = new System.Drawing.Point(97, 155);
+            this.cboDrill.Margin = new System.Windows.Forms.Padding(2);
             this.cboDrill.Name = "cboDrill";
-            this.cboDrill.Size = new System.Drawing.Size(192, 24);
+            this.cboDrill.Size = new System.Drawing.Size(145, 21);
             this.cboDrill.TabIndex = 5;
             this.cboDrill.Text = "Drills";
             this.cboDrill.SelectedIndexChanged += new System.EventHandler(this.cbxDrill_SelectedIndexChanged);
@@ -112,29 +112,30 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(126, 102);
+            this.lblWelcome.Location = new System.Drawing.Point(94, 83);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(46, 17);
+            this.lblWelcome.Size = new System.Drawing.Size(35, 13);
             this.lblWelcome.TabIndex = 6;
             this.lblWelcome.Text = "label1";
             // 
             // btnTakeTest
             // 
-            this.btnTakeTest.Location = new System.Drawing.Point(129, 331);
+            this.btnTakeTest.Location = new System.Drawing.Point(97, 269);
             this.btnTakeTest.Margin = new System.Windows.Forms.Padding(2);
             this.btnTakeTest.Name = "btnTakeTest";
-            this.btnTakeTest.Size = new System.Drawing.Size(190, 34);
+            this.btnTakeTest.Size = new System.Drawing.Size(142, 28);
             this.btnTakeTest.TabIndex = 7;
             this.btnTakeTest.Text = "Take Test";
             this.btnTakeTest.UseVisualStyleBackColor = true;
             this.btnTakeTest.Visible = false;
+            this.btnTakeTest.Click += new System.EventHandler(this.btnTakeTest_Click);
             // 
             // frmHomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 456);
+            this.ClientSize = new System.Drawing.Size(334, 370);
             this.Controls.Add(this.btnTakeTest);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.cboDrill);
@@ -143,7 +144,7 @@
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHomePage";
             this.Text = "Home Page";
             this.menuStrip1.ResumeLayout(false);

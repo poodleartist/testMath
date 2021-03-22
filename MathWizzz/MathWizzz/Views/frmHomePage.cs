@@ -88,6 +88,7 @@ namespace MathWizzz
             this.Hide();
             frmViewProfile profileForm = new frmViewProfile(student.userId);
             profileForm.ShowDialog();
+            this.Close();
         }
 
         private void btnViewProgression_Click(object sender, EventArgs e)
@@ -96,6 +97,11 @@ namespace MathWizzz
             frmViewProgress viewProgress = new frmViewProgress(student);
             viewProgress.ShowDialog();
             this.Show();
+        }
+
+        private void btnTakeTest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

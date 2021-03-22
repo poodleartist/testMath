@@ -57,6 +57,7 @@ namespace MathWizzz
             this.Hide();
             Views.frmRegister register = new Views.frmRegister();
             register.ShowDialog();
+            this.Show();
         }
     }
 }
