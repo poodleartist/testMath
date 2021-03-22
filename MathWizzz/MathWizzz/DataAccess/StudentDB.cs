@@ -187,27 +187,15 @@ namespace MathWizzz
         {
             bool success = false;
             SqlConnection connection = MathWizzDB.GetConnection();
-            SqlCommand command = new SqlCommand("INSERT INTO StudentInfo(RewardPoints) +" +
-                                                "VALUES('@RewardPoints')" +
+            SqlCommand command = new SqlCommand("INSERT INTO StudentInfo(RewardPoints) " +
+                                                "VALUES(@RewardPoints) " +
                                                 "WHERE StudentId = @StudentId");
 
             command.Parameters.AddWithValue("@RewardPoints", rewardPoints);
             try
             {
-                connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                {
-                    success = true;
-                }
-                else
-                {
-                    success = false;
-                }
-
-                // for testing
-                Console.WriteLine("RowsAffected: {0}", rowsAffected);
-
+                command.Connection.Open();
+                command.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -215,7 +203,7 @@ namespace MathWizzz
             }
             finally
             {
-                connection.Close();
+                command.Connection.Close();
             }
 
             return success;
@@ -225,27 +213,15 @@ namespace MathWizzz
         {
             bool success = false;
             SqlConnection connection = MathWizzDB.GetConnection();
-            SqlCommand command = new SqlCommand("INSERT INTO StudentInfo(ClassId) +" +
-                                                "VALUES('@ClassId')" +
+            SqlCommand command = new SqlCommand("INSERT INTO StudentInfo(ClassId) " +
+                                                "VALUES('@ClassId') " +
                                                 "WHERE StudentId = @StudentId");
 
             command.Parameters.AddWithValue("@ClassId", classId);
             try
             {
-                connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                {
-                    success = true;
-                }
-                else
-                {
-                    success = false;
-                }
-
-                // for testing
-                Console.WriteLine("RowsAffected: {0}", rowsAffected);
-
+                command.Connection.Open();
+                command.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -253,7 +229,7 @@ namespace MathWizzz
             }
             finally
             {
-                connection.Close();
+                command.Connection.Close();
             }
 
             return success;
