@@ -41,7 +41,7 @@ namespace MathWizzz
             try
             {
 
-                int answer = int.Parse(txtAnswer.Text);
+                double answer = Convert.ToDouble(txtAnswer.Text);
                 bool isCorrect = Drill.CheckAnswer(answer);
                 if (!isCorrect && Drill.NumberOfAttempts > 0)
                 {

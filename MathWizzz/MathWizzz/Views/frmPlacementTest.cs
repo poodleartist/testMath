@@ -105,9 +105,8 @@ namespace MathWizzz.Views
 
         private void btnCancelDrill_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmHomePage HomePage = new frmHomePage(Student);
-            HomePage.ShowDialog();
+            this.Close();
+
         }
     }
 }

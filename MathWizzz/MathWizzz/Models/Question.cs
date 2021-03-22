@@ -6,7 +6,7 @@ namespace MathWizzz
     {
         //public SkillLevel SkillLevel { get; set; }
         public string NewQuestion { get; set; }
-        public int Answer { get; set; }
+        public double Answer { get; set; }
 
         public Question() { }
 
@@ -15,7 +15,7 @@ namespace MathWizzz
             GenerateQuestionAndAnswer(skillLevel);
         }
 
-        public bool CheckAnswer(int studentAnswer)
+        public bool CheckAnswer(double studentAnswer)
         {
             if (Answer == studentAnswer)
                 return true;
@@ -26,8 +26,8 @@ namespace MathWizzz
         public void GenerateQuestionAndAnswer(SkillLevel skill)
         {
             Random random = new Random();
-            int firstOperand = random.Next(skill.MinValue, skill.MaxValue);
-            int secondOperand = random.Next(skill.MinValue, skill.MaxValue);
+            double firstOperand = random.Next(skill.MinValue, skill.MaxValue);
+            double secondOperand = random.Next(skill.MinValue, skill.MaxValue);
             string mathOperator = "";
             switch (skill.MathOperator)
             {
@@ -46,6 +46,7 @@ namespace MathWizzz
                 case "/":
                     mathOperator = " / ";
                     Answer = firstOperand / secondOperand;
+                    Answer = Math.Round(Answer, 2);
                     break;
             }
 

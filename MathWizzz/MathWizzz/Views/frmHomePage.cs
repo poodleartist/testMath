@@ -80,6 +80,7 @@ namespace MathWizzz
             this.Hide();
             frmDrill DrillForm = new frmDrill(student, Convert.ToInt32(cboDrill.Text));
             DrillForm.ShowDialog();
+            this.Show();
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

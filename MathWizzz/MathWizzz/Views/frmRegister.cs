@@ -74,7 +74,7 @@ namespace MathWizzz.Views
                     student = StudentDB.StudentLogin(txtUserName.Text, txtPassword.Text);
                     student.StudentLevel = 1;
                     student.classID = Convert.ToInt16(txtClassroom.Text);
-                    int numQuestion = 10;
+                    int numQuestion = 20;
                     frmPlacementTest placement = new frmPlacementTest(student, numQuestion);
                     placement.ShowDialog();
                     

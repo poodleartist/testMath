@@ -47,7 +47,7 @@ namespace MathWizzz.Models
             }
         }
 
-        public override bool CheckAnswer(int studentAnswer)
+        public override bool CheckAnswer(double studentAnswer)
         {
             bool isCorrect = Question.CheckAnswer(studentAnswer);
 
@@ -58,11 +58,11 @@ namespace MathWizzz.Models
 
                 //If the student get 3 right in a row then increase the skill level 
                 //by 1 after that if they get 2 right consecutively increase skill level by 1
-                if(streak > 3)
+                if(streak >= 2)
                 {
                     Student.studentLevel += 1;
                     Skill = SkillLevelDB.GetSkillLevel(Student.StudentLevel);
-                    streak = 1;
+                    streak = 0;
                 }
 
 

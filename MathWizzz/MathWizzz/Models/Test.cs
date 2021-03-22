@@ -20,7 +20,7 @@ namespace MathWizzz.Models
             Skill = SkillLevelDB.GetSkillLevel(Student.StudentLevel);
         }
 
-        public override bool CheckAnswer(int studentAnswer)
+        public override bool CheckAnswer(double studentAnswer)
         {
             bool isCorrect = Question.CheckAnswer(studentAnswer);
 
